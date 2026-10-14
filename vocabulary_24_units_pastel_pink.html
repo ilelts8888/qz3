@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Index - 24 Units (100% Full Data)</title>
+    <style>
+        :root {
+            --bg-pastel: #ffeef4;
+            --bg-card: #ffffff;
+            --pink-light: #ffd6e5;
+            --pink-medium: #ff9ebb;
+            --pink-dark: #d6457a;
+            --pink-deeper: #a82857;
+            --text-main: #3d232e;
+            --text-muted: #7a5263;
+            --border-pink: #f7c8da;
+            --row-hover: #fff5f8;
+            --badge-bg: #fce4ec;
+            --badge-text: #c2185b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-pastel);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 20px 15px 50px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ffd1e1 0%, #ffc2d6 100%);
+            border: 2px solid #f4a9c4;
+            border-radius: 18px;
+            padding: 22px 26px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 18px rgba(214, 69, 122, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-title h1 {
+            font-size: 1.7rem;
+            color: var(--pink-deeper);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-title p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .stats-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--border-pink);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--pink-deeper);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        /* Controls Bar */
+        .controls-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-pink);
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 10px rgba(214, 69, 122, 0.05);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 240px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px 10px 38px;
+            border: 1.5px solid var(--border-pink);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            color: var(--text-main);
+            background-color: #fffafb;
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--pink-dark);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(214, 69, 122, 0.12);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--pink-dark);
+            font-size: 1rem;
+        }
+
+        .audio-settings {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .audio-settings select {
+            padding: 8px 12px;
+            border: 1.5px solid var(--border-pink);
+            border-radius: 8px;
+            background: #fffafb;
+            color: var(--text-main);
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* 24 Unit Tabs Grid */
+        .tabs-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-pink);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(214, 69, 122, 0.05);
+        }
+
+        .tabs-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            padding-left: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tabs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        .tab-btn {
+            background: #fff5f8;
+            border: 1.5px solid var(--border-pink);
+            border-radius: 10px;
+            padding: 9px 10px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .tab-btn:hover {
+            background: var(--pink-light);
+            border-color: var(--pink-medium);
+            transform: translateY(-1px);
+        }
+
+        .tab-btn.active {
+            background: var(--pink-dark);
+            border-color: var(--pink-deeper);
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(214, 69, 122, 0.28);
+        }
+
+        .tab-unit-num {
+            font-size: 0.82rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tab-unit-count {
+            font-size: 0.72rem;
+            background: rgba(214, 69, 122, 0.12);
+            color: var(--pink-deeper);
+            padding: 1px 6px;
+            border-radius: 99px;
+        }
+
+        .tab-btn.active .tab-unit-count {
+            background: rgba(255, 255, 255, 0.25);
+            color: #fff;
+        }
+
+        .tab-unit-title {
+            font-size: 0.76rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            opacity: 0.88;
+        }
+
+        /* Active Unit Content Card */
+        .unit-card {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-pink);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(214, 69, 122, 0.08);
+        }
+
+        .unit-card-header {
+            background: linear-gradient(90deg, #ffe0eb 0%, #fff0f5 100%);
+            padding: 18px 24px;
+            border-bottom: 1.5px solid var(--border-pink);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .unit-heading h2 {
+            font-size: 1.4rem;
+            color: var(--pink-deeper);
+        }
+
+        .unit-heading span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .play-all-btn {
+            background: var(--pink-dark);
+            color: #fff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: background 0.2s;
+        }
+
+        .play-all-btn:hover {
+            background: var(--pink-deeper);
+        }
+
+        /* Vocabulary Table */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: #fff7fa;
+            color: var(--pink-deeper);
+            font-size: 0.86rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            padding: 13px 16px;
+            border-bottom: 2px solid var(--border-pink);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #f9dce8;
+            transition: background-color 0.15s;
+        }
+
+        tbody tr:hover {
+            background-color: var(--row-hover);
+        }
+
+        tbody td {
+            padding: 12px 16px;
+            vertical-align: middle;
+            font-size: 0.96rem;
+        }
+
+        .col-stt {
+            width: 60px;
+            text-align: center;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.88rem;
+        }
+
+        .col-word {
+            font-weight: 700;
+            color: #2b141d;
+            font-size: 1.02rem;
+        }
+
+        .word-cell-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .speaker-btn {
+            background: #ffe6f0;
+            border: 1.5px solid #f5b6ce;
+            color: var(--pink-dark);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.18s ease;
+            font-size: 1rem;
+        }
+
+        .speaker-btn:hover {
+            background: var(--pink-dark);
+            border-color: var(--pink-deeper);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .speaker-btn.speaking {
+            background: var(--pink-deeper);
+            color: #fff;
+            box-shadow: 0 0 0 4px rgba(214, 69, 122, 0.25);
+            animation: pulse 0.9s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .col-pos {
+            width: 140px;
+        }
+
+        .pos-badge {
+            display: inline-block;
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #f8bbd0;
+        }
+
+        .col-meaning {
+            color: #3d232e;
+        }
+
+        .empty-state {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        footer {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 640px) {
+            .tabs-grid {
+                grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+            }
+            thead th, tbody td {
+                padding: 10px 10px;
+                font-size: 0.9rem;
+            }
+            .col-pos {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title">
+            <h1>🌸 VOCABULARY INDEX (UNITS 1 – 24)</h1>
+            <p>Toàn bộ 100% từ vựng & cụm từ trích xuất nguyên bản từ 3 trang Vocabulary Index • Phát âm chuẩn Anh - Anh (en-GB)</p>
+        </div>
+        <div class="stats-badges">
+            <div class="stat-pill">📚 24 Units đầy đủ</div>
+            <div class="stat-pill">✨ Tổng cộng: <span id="total-vocab-count">828</span> mục từ vựng</div>
+            <div class="stat-pill">🇬🇧 Giọng đọc: Anh - Anh (UK)</div>
+        </div>
+    </header>
+
+    <div class="controls-bar">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Tìm kiếm từ vựng hoặc nghĩa tiếng Việt trong Unit hiện tại (hoặc bật tìm toàn bộ)...">
+        </div>
+        <div class="audio-settings">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:600;color:var(--pink-deeper);">
+                <input type="checkbox" id="searchAllToggle"> Tìm trên cả 24 Units
+            </label>
+            <span>|</span>
+            <label for="voiceSelect">🔊 Giọng Anh-Anh:</label>
+            <select id="voiceSelect"></select>
+            <label for="rateSelect">Tốc độ:</label>
+            <select id="rateSelect">
+                <option value="0.85">0.85x (Chậm rõ)</option>
+                <option value="1" selected>1.0x (Chuẩn)</option>
+                <option value="1.1">1.1x (Nhanh)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="tabs-wrapper">
+        <div class="tabs-label">
+            <span>Danh sách 24 Units (Nhấn vào từng Tab để xem từ vựng của Unit đó)</span>
+            <span id="current-tab-indicator">Đang chọn: Unit 1</span>
+        </div>
+        <div class="tabs-grid" id="tabsContainer"></div>
+    </div>
+
+    <div class="unit-card">
+        <div class="unit-card-header">
+            <div class="unit-heading">
+                <h2 id="unitTitleDisplay">Unit 1: Introductions and Names</h2>
+                <span id="unitCountDisplay">Hiển thị 22 / 22 từ vựng</span>
+            </div>
+            <button class="play-all-btn" id="playAllBtn" onclick="togglePlayAll()">
+                <span>🔊</span> <span id="playAllText">Đọc lần lượt cả Unit</span>
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-stt">STT</th>
+                        <th>Từ vựng / Cụm từ ( phát âm Anh-Anh )</th>
+                        <th class="col-pos">Từ loại</th>
+                        <th>Nghĩa tiếng Việt</th>
+                    </tr>
+                </thead>
+                <tbody id="vocabTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        Thiết kế giao diện Pastel Pink • Đảm bảo nguyên tắc toàn vẹn dữ liệu 100% (828/828 từ & cụm từ của 24 Units)
+    </footer>
+</div>
+
+<script>
+    const VOCAB_DATA = [{"unit_num": 1, "unit": "Unit 1", "title": "Introductions and Names", "count": 22, "items": [{"id": 1, "word": "accounting", "speech": "accounting", "pos": "n", "meaning": "kế toán, ngành kế toán"}, {"id": 2, "word": "assignment", "speech": "assignment", "pos": "n", "meaning": "bài tập, nhiệm vụ được giao"}, {"id": 3, "word": "department", "speech": "department", "pos": "n", "meaning": "khoa, phòng ban"}, {"id": 4, "word": "forgotten", "speech": "forgotten", "pos": "v (p.p) / adj", "meaning": "đã quên, bị lãng quên"}, {"id": 5, "word": "gym", "speech": "gym", "pos": "n", "meaning": "phòng tập thể dục"}, {"id": 6, "word": "register", "speech": "register", "pos": "v", "meaning": "đăng ký"}, {"id": 7, "word": "reservation", "speech": "reservation", "pos": "n", "meaning": "sự đặt chỗ trước"}, {"id": 8, "word": "semester", "speech": "semester", "pos": "n", "meaning": "học kỳ"}, {"id": 9, "word": "university", "speech": "university", "pos": "n", "meaning": "trường đại học"}, {"id": 10, "word": "unusual", "speech": "unusual", "pos": "adj", "meaning": "khác thường, lạ, hiếm gặp"}, {"id": 11, "word": "weekend", "speech": "weekend", "pos": "n", "meaning": "cuối tuần"}, {"id": 12, "word": "yep", "speech": "yep", "pos": "excl", "meaning": "ừ, đúng vậy (thân mật)"}, {"id": 13, "word": "checking in", "speech": "checking in", "pos": "phr", "meaning": "đang làm thủ tục nhận phòng / đăng ký vào"}, {"id": 14, "word": "e-mail address", "speech": "e-mail address", "pos": "n phr", "meaning": "địa chỉ thư điện tử (email)"}, {"id": 15, "word": "get together", "speech": "get together", "pos": "phr.v", "meaning": "tụ tập, gặp gỡ nhau"}, {"id": 16, "word": "give (someone) a call", "speech": "give someone a call", "pos": "phr", "meaning": "gọi điện thoại cho (ai đó)"}, {"id": 17, "word": "How do you spell that?", "speech": "How do you spell that?", "pos": "sentence", "meaning": "Bạn đánh vần từ đó như thế nào?"}, {"id": 18, "word": "It's nice to meet you.", "speech": "It's nice to meet you.", "pos": "sentence", "meaning": "Rất vui được gặp bạn."}, {"id": 19, "word": "Let me see.", "speech": "Let me see.", "pos": "sentence", "meaning": "Để tôi xem nào."}, {"id": 20, "word": "phone number", "speech": "phone number", "pos": "n phr", "meaning": "số điện thoại"}, {"id": 21, "word": "pretty good", "speech": "pretty good", "pos": "phr", "meaning": "khá tốt, khá ổn"}, {"id": 22, "word": "wait a minute", "speech": "wait a minute", "pos": "phr", "meaning": "đợi một chút, chờ một lát"}]}, {"unit_num": 2, "unit": "Unit 2", "title": "Describing People", "count": 30, "items": [{"id": 1, "word": "actress", "speech": "actress", "pos": "n", "meaning": "nữ diễn viên"}, {"id": 2, "word": "age", "speech": "age", "pos": "n", "meaning": "tuổi, độ tuổi"}, {"id": 3, "word": "almost", "speech": "almost", "pos": "adv", "meaning": "hầu như, gần như"}, {"id": 4, "word": "blond", "speech": "blond", "pos": "adj", "meaning": "vàng hoe (tóc)"}, {"id": 5, "word": "boyfriend", "speech": "boyfriend", "pos": "n", "meaning": "bạn trai"}, {"id": 6, "word": "cousins", "speech": "cousins", "pos": "n (pl)", "meaning": "anh/chị/em họ"}, {"id": 7, "word": "curly", "speech": "curly", "pos": "adj", "meaning": "xoăn (tóc)"}, {"id": 8, "word": "cute", "speech": "cute", "pos": "adj", "meaning": "dễ thương, đáng yêu"}, {"id": 9, "word": "dark (hair)", "speech": "dark hair", "pos": "adj", "meaning": "sẫm màu, đen (tóc)"}, {"id": 10, "word": "glasses", "speech": "glasses", "pos": "n (pl)", "meaning": "kính mắt, mắt kính"}, {"id": 11, "word": "height", "speech": "height", "pos": "n", "meaning": "chiều cao"}, {"id": 12, "word": "kid (child)", "speech": "kid child", "pos": "n", "meaning": "đứa trẻ, trẻ con"}, {"id": 13, "word": "long", "speech": "long", "pos": "adj", "meaning": "dài"}, {"id": 14, "word": "lost", "speech": "lost", "pos": "adj", "meaning": "bị lạc, bị mất"}, {"id": 15, "word": "pretty (adv.)", "speech": "pretty", "pos": "adv", "meaning": "khá, tương đối"}, {"id": 16, "word": "short", "speech": "short", "pos": "adj", "meaning": "thấp, lùn; ngắn"}, {"id": 17, "word": "shoulder-length", "speech": "shoulder-length", "pos": "adj", "meaning": "dài ngang vai (tóc)"}, {"id": 18, "word": "straight", "speech": "straight", "pos": "adj", "meaning": "thẳng (tóc)"}, {"id": 19, "word": "tall", "speech": "tall", "pos": "adj", "meaning": "cao"}, {"id": 20, "word": "teens", "speech": "teens", "pos": "n (pl)", "meaning": "tuổi thiếu niên (13 - 19 tuổi)"}, {"id": 21, "word": "thirties", "speech": "thirties", "pos": "n (pl)", "meaning": "những năm tuổi 30 (30 - 39 tuổi)"}, {"id": 22, "word": "twenties", "speech": "twenties", "pos": "n (pl)", "meaning": "những năm tuổi 20 (20 - 29 tuổi)"}, {"id": 23, "word": "about average", "speech": "about average", "pos": "phr", "meaning": "ở mức trung bình, tầm trung bình"}, {"id": 24, "word": "dark brown", "speech": "dark brown", "pos": "adj phr", "meaning": "nâu sẫm, nâu đậm"}, {"id": 25, "word": "drive (someone) crazy", "speech": "drive someone crazy", "pos": "idiom", "meaning": "làm (ai đó) phát điên, bực mình"}, {"id": 26, "word": "light brown (hair)", "speech": "light brown hair", "pos": "adj phr", "meaning": "(tóc) màu nâu nhạt, nâu sáng"}, {"id": 27, "word": "looks about", "speech": "looks about", "pos": "phr", "meaning": "trông khoảng chừng (tuổi)"}, {"id": 28, "word": "rock band", "speech": "rock band", "pos": "n phr", "meaning": "ban nhạc rock"}, {"id": 29, "word": "wear (one's) hair", "speech": "wear one's hair", "pos": "phr", "meaning": "để kiểu tóc"}, {"id": 30, "word": "You can't miss (someone)", "speech": "You can't miss someone", "pos": "idiom", "meaning": "Bạn không thể nào không nhận ra (ai đó) được"}]}, {"unit_num": 3, "unit": "Unit 3", "title": "Clothes", "count": 34, "items": [{"id": 1, "word": "blouse", "speech": "blouse", "pos": "n", "meaning": "áo kiểu nữ, áo sơ mi nữ"}, {"id": 2, "word": "body-builder", "speech": "body-builder", "pos": "n", "meaning": "vận động viên thể hình"}, {"id": 3, "word": "boots", "speech": "boots", "pos": "n (pl)", "meaning": "giày ống, bốt"}, {"id": 4, "word": "comfortable", "speech": "comfortable", "pos": "adj", "meaning": "thoải mái, dễ chịu"}, {"id": 5, "word": "dress", "speech": "dress", "pos": "n", "meaning": "váy liền thân, đầm"}, {"id": 6, "word": "earrings", "speech": "earrings", "pos": "n (pl)", "meaning": "khuyên tai, bông tai"}, {"id": 7, "word": "fit (v.)", "speech": "fit", "pos": "v", "meaning": "vừa, vừa vặn"}, {"id": 8, "word": "glasses", "speech": "glasses", "pos": "n (pl)", "meaning": "mắt kính"}, {"id": 9, "word": "hat", "speech": "hat", "pos": "n", "meaning": "mũ, nón"}, {"id": 10, "word": "jacket", "speech": "jacket", "pos": "n", "meaning": "áo khoác ngắn"}, {"id": 11, "word": "jeans", "speech": "jeans", "pos": "n (pl)", "meaning": "quần bò, quần jean"}, {"id": 12, "word": "loose", "speech": "loose", "pos": "adj", "meaning": "rộng, thùng thình"}, {"id": 13, "word": "muscles", "speech": "muscles", "pos": "n (pl)", "meaning": "cơ bắp"}, {"id": 14, "word": "necklace", "speech": "necklace", "pos": "n", "meaning": "dây chuyền, vòng cổ"}, {"id": 15, "word": "pants", "speech": "pants", "pos": "n (pl)", "meaning": "quần dài"}, {"id": 16, "word": "reddish-blond", "speech": "reddish-blond", "pos": "adj", "meaning": "vàng ánh đỏ, vàng hung (tóc)"}, {"id": 17, "word": "ring", "speech": "ring", "pos": "n", "meaning": "nhẫn"}, {"id": 18, "word": "sandals", "speech": "sandals", "pos": "n (pl)", "meaning": "dép xăng-đan"}, {"id": 19, "word": "scarf", "speech": "scarf", "pos": "n", "meaning": "khăn quàng cổ"}, {"id": 20, "word": "shirt", "speech": "shirt", "pos": "n", "meaning": "áo sơ mi"}, {"id": 21, "word": "short", "speech": "short", "pos": "adj", "meaning": "ngắn"}, {"id": 22, "word": "shorts", "speech": "shorts", "pos": "n (pl)", "meaning": "quần đùi, quần soóc"}, {"id": 23, "word": "skirt", "speech": "skirt", "pos": "n", "meaning": "chân váy"}, {"id": 24, "word": "sneakers", "speech": "sneakers", "pos": "n (pl)", "meaning": "giày thể thao"}, {"id": 25, "word": "suit", "speech": "suit", "pos": "n", "meaning": "bộ com-lê, bộ đồ vest"}, {"id": 26, "word": "tie", "speech": "tie", "pos": "n", "meaning": "cà vạt"}, {"id": 27, "word": "tight", "speech": "tight", "pos": "adj", "meaning": "chật, bó sát"}, {"id": 28, "word": "too", "speech": "too", "pos": "adv", "meaning": "quá (mức)"}, {"id": 29, "word": "T-shirt", "speech": "T-shirt", "pos": "n", "meaning": "áo phông, áo thun"}, {"id": 30, "word": "windbreaker", "speech": "windbreaker", "pos": "n", "meaning": "áo khoác gió"}, {"id": 31, "word": "casually dressed", "speech": "casually dressed", "pos": "adj phr", "meaning": "ăn mặc giản dị, thoải mái thường ngày"}, {"id": 32, "word": "long (dress)", "speech": "long dress", "pos": "adj phr", "meaning": "(váy) dài"}, {"id": 33, "word": "shoulder bag", "speech": "shoulder bag", "pos": "n phr", "meaning": "túi đeo vai"}, {"id": 34, "word": "try on (clothes)", "speech": "try on clothes", "pos": "phr.v", "meaning": "mặc thử (quần áo)"}]}, {"unit_num": 4, "unit": "Unit 4", "title": "Routines", "count": 22, "items": [{"id": 1, "word": "cereal", "speech": "cereal", "pos": "n", "meaning": "ngũ cốc (ăn sáng)"}, {"id": 2, "word": "chat (v.)", "speech": "chat", "pos": "v", "meaning": "trò chuyện, tán gẫu"}, {"id": 3, "word": "newspaper", "speech": "newspaper", "pos": "n", "meaning": "báo, tờ báo"}, {"id": 4, "word": "subway", "speech": "subway", "pos": "n", "meaning": "tàu điện ngầm"}, {"id": 5, "word": "text (v.)", "speech": "text", "pos": "v", "meaning": "nhắn tin"}, {"id": 6, "word": "a morning person", "speech": "a morning person", "pos": "n phr", "meaning": "người hay dậy sớm, tỉnh táo vào buổi sáng"}, {"id": 7, "word": "a night person", "speech": "a night person", "pos": "n phr", "meaning": "người hay thức khuya, hoạt động về đêm"}, {"id": 8, "word": "a quarter to (four)", "speech": "a quarter to four", "pos": "phr", "meaning": "(bốn) giờ kém mười lăm phút"}, {"id": 9, "word": "Do you have the time?", "speech": "Do you have the time?", "pos": "sentence", "meaning": "Bạn có biết mấy giờ rồi không?"}, {"id": 10, "word": "fall asleep", "speech": "fall asleep", "pos": "phr", "meaning": "chìm vào giấc ngủ, ngủ thiếp đi"}, {"id": 11, "word": "five past ten", "speech": "five past ten", "pos": "phr", "meaning": "mười giờ năm phút"}, {"id": 12, "word": "get up", "speech": "get up", "pos": "phr.v", "meaning": "thức dậy (ra khỏi giường)"}, {"id": 13, "word": "hang out", "speech": "hang out", "pos": "phr.v", "meaning": "đi chơi, tụ tập bạn bè"}, {"id": 14, "word": "It depends", "speech": "It depends", "pos": "phr", "meaning": "Còn tùy thuộc vào..."}, {"id": 15, "word": "New Year", "speech": "New Year", "pos": "n phr", "meaning": "Năm mới"}, {"id": 16, "word": "night person", "speech": "night person", "pos": "n phr", "meaning": "người hay thức khuya (cú đêm)"}, {"id": 17, "word": "night shift", "speech": "night shift", "pos": "n phr", "meaning": "ca làm việc đêm"}, {"id": 18, "word": "stay up late", "speech": "stay up late", "pos": "phr.v", "meaning": "thức khuya"}, {"id": 19, "word": "ten after ten", "speech": "ten after ten", "pos": "phr", "meaning": "mười giờ mười phút"}, {"id": 20, "word": "twenty to two", "speech": "twenty to two", "pos": "phr", "meaning": "hai giờ kém hai mươi phút"}, {"id": 21, "word": "video games", "speech": "video games", "pos": "n phr (pl)", "meaning": "trò chơi điện tử"}, {"id": 22, "word": "What's the time?", "speech": "What's the time?", "pos": "sentence", "meaning": "Mấy giờ rồi?"}]}, {"unit_num": 5, "unit": "Unit 5", "title": "Dates", "count": 36, "items": [{"id": 1, "word": "airport", "speech": "airport", "pos": "n", "meaning": "sân bay"}, {"id": 2, "word": "appointment", "speech": "appointment", "pos": "n", "meaning": "cuộc hẹn"}, {"id": 3, "word": "arrive", "speech": "arrive", "pos": "v", "meaning": "đến nơi"}, {"id": 4, "word": "barbecue", "speech": "barbecue", "pos": "n", "meaning": "tiệc nướng ngoài trời"}, {"id": 5, "word": "book", "speech": "book", "pos": "v / n", "meaning": "đặt chỗ trước; quyển sách"}, {"id": 6, "word": "confirm", "speech": "confirm", "pos": "v", "meaning": "xác nhận"}, {"id": 7, "word": "exams", "speech": "exams", "pos": "n (pl)", "meaning": "các kỳ thi, bài thi"}, {"id": 8, "word": "fifth", "speech": "fifth", "pos": "num (ord)", "meaning": "thứ năm (5th)"}, {"id": 9, "word": "fifteenth", "speech": "fifteenth", "pos": "num (ord)", "meaning": "thứ mười lăm (15th)"}, {"id": 10, "word": "first", "speech": "first", "pos": "num (ord)", "meaning": "thứ nhất, đầu tiên (1st)"}, {"id": 11, "word": "fourth", "speech": "fourth", "pos": "num (ord)", "meaning": "thứ tư (4th)"}, {"id": 12, "word": "fourteenth", "speech": "fourteenth", "pos": "num (ord)", "meaning": "thứ mười bốn (14th)"}, {"id": 13, "word": "leave", "speech": "leave", "pos": "v", "meaning": "rời đi, khởi hành"}, {"id": 14, "word": "second", "speech": "second", "pos": "num (ord)", "meaning": "thứ hai (2nd)"}, {"id": 15, "word": "sixth", "speech": "sixth", "pos": "num (ord)", "meaning": "thứ sáu (6th)"}, {"id": 16, "word": "sixteenth", "speech": "sixteenth", "pos": "num (ord)", "meaning": "thứ mười sáu (16th)"}, {"id": 17, "word": "study", "speech": "study", "pos": "v", "meaning": "học, nghiên cứu"}, {"id": 18, "word": "tenth", "speech": "tenth", "pos": "num (ord)", "meaning": "thứ mười (10th)"}, {"id": 19, "word": "third", "speech": "third", "pos": "num (ord)", "meaning": "thứ ba (3rd)"}, {"id": 20, "word": "thirteenth", "speech": "thirteenth", "pos": "num (ord)", "meaning": "thứ mười ba (13th)"}, {"id": 21, "word": "thirty-first", "speech": "thirty-first", "pos": "num (ord)", "meaning": "thứ ba mươi mốt (31st)"}, {"id": 22, "word": "vacation", "speech": "vacation", "pos": "n", "meaning": "kỳ nghỉ"}, {"id": 23, "word": "a month ago", "speech": "a month ago", "pos": "adv phr", "meaning": "cách đây một tháng"}, {"id": 24, "word": "Are you free?", "speech": "Are you free?", "pos": "sentence", "meaning": "Bạn có rảnh không?"}, {"id": 25, "word": "book (a flight)", "speech": "book a flight", "pos": "v phr", "meaning": "đặt (vé máy bay)"}, {"id": 26, "word": "dental appointment", "speech": "dental appointment", "pos": "n phr", "meaning": "lịch hẹn khám nha khoa"}, {"id": 27, "word": "family party", "speech": "family party", "pos": "n phr", "meaning": "bữa tiệc gia đình"}, {"id": 28, "word": "How long are you staying?", "speech": "How long are you staying?", "pos": "sentence", "meaning": "Bạn sẽ ở lại trong bao lâu?"}, {"id": 29, "word": "in two months", "speech": "in two months", "pos": "prep phr", "meaning": "trong hai tháng nữa"}, {"id": 30, "word": "It's not 'til next month.", "speech": "It's not 'til next month.", "pos": "sentence", "meaning": "Mãi đến tháng sau mới diễn ra."}, {"id": 31, "word": "leave from", "speech": "leave from", "pos": "v phr", "meaning": "rời đi từ, khởi hành từ"}, {"id": 32, "word": "Let me know.", "speech": "Let me know.", "pos": "sentence", "meaning": "Hãy cho tôi biết nhé."}, {"id": 33, "word": "next month", "speech": "next month", "pos": "adv / n phr", "meaning": "tháng tới, tháng sau"}, {"id": 34, "word": "this month", "speech": "this month", "pos": "adv / n phr", "meaning": "tháng này"}, {"id": 35, "word": "When did you get here?", "speech": "When did you get here?", "pos": "sentence", "meaning": "Bạn đã đến đây khi nào?"}, {"id": 36, "word": "Will you be here long?", "speech": "Will you be here long?", "pos": "sentence", "meaning": "Bạn sẽ ở đây lâu chứ?"}]}, {"unit_num": 6, "unit": "Unit 6", "title": "Jobs", "count": 43, "items": [{"id": 1, "word": "acting", "speech": "acting", "pos": "n", "meaning": "nghề diễn xuất"}, {"id": 2, "word": "architect", "speech": "architect", "pos": "n", "meaning": "kiến trúc sư"}, {"id": 3, "word": "bookstore", "speech": "bookstore", "pos": "n", "meaning": "hiệu sách, nhà sách"}, {"id": 4, "word": "boss", "speech": "boss", "pos": "n", "meaning": "ông chủ, sếp"}, {"id": 5, "word": "businessperson", "speech": "businessperson", "pos": "n", "meaning": "doanh nhân"}, {"id": 6, "word": "chef", "speech": "chef", "pos": "n", "meaning": "đầu bếp trưởng"}, {"id": 7, "word": "distance", "speech": "distance", "pos": "n", "meaning": "khoảng cách, quãng đường"}, {"id": 8, "word": "doctor", "speech": "doctor", "pos": "n", "meaning": "bác sĩ"}, {"id": 9, "word": "graduated", "speech": "graduated", "pos": "v (p.p) / adj", "meaning": "đã tốt nghiệp"}, {"id": 10, "word": "kids", "speech": "kids", "pos": "n (pl)", "meaning": "trẻ em, lũ trẻ"}, {"id": 11, "word": "lawyer", "speech": "lawyer", "pos": "n", "meaning": "luật sư"}, {"id": 12, "word": "nurse", "speech": "nurse", "pos": "n", "meaning": "y tá, điều dưỡng"}, {"id": 13, "word": "nursing", "speech": "nursing", "pos": "n", "meaning": "nghề điều dưỡng, ngành y tá"}, {"id": 14, "word": "outside", "speech": "outside", "pos": "adv / prep", "meaning": "ở bên ngoài, ngoài trời"}, {"id": 15, "word": "perfect", "speech": "perfect", "pos": "adj", "meaning": "hoàn hảo"}, {"id": 16, "word": "police officer", "speech": "police officer", "pos": "n phr", "meaning": "cảnh sát"}, {"id": 17, "word": "quit", "speech": "quit", "pos": "v", "meaning": "nghỉ việc, từ bỏ"}, {"id": 18, "word": "receptionist", "speech": "receptionist", "pos": "n", "meaning": "nhân viên lễ tân"}, {"id": 19, "word": "salesperson", "speech": "salesperson", "pos": "n", "meaning": "nhân viên bán hàng"}, {"id": 20, "word": "sell", "speech": "sell", "pos": "v", "meaning": "bán"}, {"id": 21, "word": "server", "speech": "server", "pos": "n", "meaning": "nhân viên phục vụ bàn"}, {"id": 22, "word": "still", "speech": "still", "pos": "adv", "meaning": "vẫn, vẫn còn"}, {"id": 23, "word": "tips", "speech": "tips", "pos": "n (pl)", "meaning": "tiền boa (tiền tip)"}, {"id": 24, "word": "tiring", "speech": "tiring", "pos": "adj", "meaning": "gây mệt mỏi, vất vả"}, {"id": 25, "word": "travel", "speech": "travel", "pos": "v / n", "meaning": "đi lại, đi công tác, du lịch"}, {"id": 26, "word": "uniform", "speech": "uniform", "pos": "n", "meaning": "đồng phục"}, {"id": 27, "word": "waiter", "speech": "waiter", "pos": "n", "meaning": "nam bồi bàn, nhân viên phục vụ nam"}, {"id": 28, "word": "well-paid", "speech": "well-paid", "pos": "adj", "meaning": "được trả lương cao"}, {"id": 29, "word": "be on (one's) feet", "speech": "be on one's feet", "pos": "idiom", "meaning": "đứng suốt (làm việc phải đứng nhiều)"}, {"id": 30, "word": "be sick of (something)", "speech": "be sick of something", "pos": "idiom", "meaning": "chán ngấy (việc gì/cái gì)"}, {"id": 31, "word": "construction worker", "speech": "construction worker", "pos": "n phr", "meaning": "công nhân xây dựng"}, {"id": 32, "word": "find a job", "speech": "find a job", "pos": "v phr", "meaning": "tìm một công việc"}, {"id": 33, "word": "flight attendant", "speech": "flight attendant", "pos": "n phr", "meaning": "tiếp viên hàng không"}, {"id": 34, "word": "just started", "speech": "just started", "pos": "v phr", "meaning": "vừa mới bắt đầu"}, {"id": 35, "word": "long hours", "speech": "long hours", "pos": "n phr", "meaning": "những giờ làm việc kéo dài"}, {"id": 36, "word": "make all the difference", "speech": "make all the difference", "pos": "idiom", "meaning": "tạo nên sự khác biệt hoàn toàn / rất lớn"}, {"id": 37, "word": "my first week", "speech": "my first week", "pos": "n phr", "meaning": "tuần đầu tiên của tôi"}, {"id": 38, "word": "not anymore", "speech": "not anymore", "pos": "adv phr", "meaning": "không còn nữa"}, {"id": 39, "word": "on the job", "speech": "on the job", "pos": "prep phr", "meaning": "đang làm việc, trong công việc"}, {"id": 40, "word": "taxi driver", "speech": "taxi driver", "pos": "n phr", "meaning": "tài xế taxi"}, {"id": 41, "word": "What are you doing now?", "speech": "What are you doing now?", "pos": "sentence", "meaning": "Bây giờ bạn đang làm công việc gì?"}, {"id": 42, "word": "the money (salary)", "speech": "the money salary", "pos": "n phr", "meaning": "tiền bạc (tiền lương)"}, {"id": 43, "word": "the pay's good", "speech": "the pay's good", "pos": "clause", "meaning": "mức lương khá tốt"}]}, {"unit_num": 7, "unit": "Unit 7", "title": "Favorites", "count": 37, "items": [{"id": 1, "word": "actor", "speech": "actor", "pos": "n", "meaning": "nam diễn viên"}, {"id": 2, "word": "athlete", "speech": "athlete", "pos": "n", "meaning": "vận động viên"}, {"id": 3, "word": "band", "speech": "band", "pos": "n", "meaning": "ban nhạc"}, {"id": 4, "word": "celebrities", "speech": "celebrities", "pos": "n (pl)", "meaning": "những người nổi tiếng"}, {"id": 5, "word": "drama", "speech": "drama", "pos": "n", "meaning": "phim chính kịch, kịch tính"}, {"id": 6, "word": "event", "speech": "event", "pos": "n", "meaning": "sự kiện"}, {"id": 7, "word": "final", "speech": "final", "pos": "adj / n", "meaning": "cuối cùng; trận chung kết"}, {"id": 8, "word": "gossip", "speech": "gossip", "pos": "n / v", "meaning": "tin đồn nhảm, chuyện phiếm; buôn chuyện"}, {"id": 9, "word": "incredible", "speech": "incredible", "pos": "adj", "meaning": "đáng kinh ngạc, tuyệt vời"}, {"id": 10, "word": "jazz", "speech": "jazz", "pos": "n", "meaning": "nhạc jazz"}, {"id": 11, "word": "mall", "speech": "mall", "pos": "n", "meaning": "trung tâm thương mại"}, {"id": 12, "word": "movie", "speech": "movie", "pos": "n", "meaning": "bộ phim"}, {"id": 13, "word": "popular", "speech": "popular", "pos": "adj", "meaning": "nổi tiếng, phổ biến, được ưa chuộng"}, {"id": 14, "word": "rap", "speech": "rap", "pos": "n", "meaning": "nhạc rap"}, {"id": 15, "word": "restaurant", "speech": "restaurant", "pos": "n", "meaning": "nhà hàng"}, {"id": 16, "word": "rock", "speech": "rock", "pos": "n", "meaning": "nhạc rock"}, {"id": 17, "word": "romance", "speech": "romance", "pos": "n", "meaning": "phim/truyện tình cảm lãng mạn"}, {"id": 18, "word": "season", "speech": "season", "pos": "n", "meaning": "mùa (phim/năm)"}, {"id": 19, "word": "selection", "speech": "selection", "pos": "n", "meaning": "sự lựa chọn, bộ sưu tập chọn lọc"}, {"id": 20, "word": "singer", "speech": "singer", "pos": "n", "meaning": "ca sĩ"}, {"id": 21, "word": "sneak", "speech": "sneak", "pos": "v", "meaning": "lén lút, trốn vào"}, {"id": 22, "word": "store", "speech": "store", "pos": "n", "meaning": "cửa hàng"}, {"id": 23, "word": "website", "speech": "website", "pos": "n", "meaning": "trang mạng (website)"}, {"id": 24, "word": "Awesome!", "speech": "Awesome!", "pos": "excl", "meaning": "Tuyệt vời! Quá đỉnh!"}, {"id": 25, "word": "beautiful voice", "speech": "beautiful voice", "pos": "n phr", "meaning": "giọng hát/giọng nói hay"}, {"id": 26, "word": "Good luck!", "speech": "Good luck!", "pos": "excl", "meaning": "Chúc may mắn!"}, {"id": 27, "word": "post a video", "speech": "post a video", "pos": "v phr", "meaning": "đăng tải một video"}, {"id": 28, "word": "professional career", "speech": "professional career", "pos": "n phr", "meaning": "sự nghiệp chuyên nghiệp"}, {"id": 29, "word": "radio station", "speech": "radio station", "pos": "n phr", "meaning": "đài phát thanh"}, {"id": 30, "word": "score a goal", "speech": "score a goal", "pos": "v phr", "meaning": "ghi bàn thắng"}, {"id": 31, "word": "stay in touch", "speech": "stay in touch", "pos": "idiom", "meaning": "giữ liên lạc"}, {"id": 32, "word": "take a break", "speech": "take a break", "pos": "v phr", "meaning": "nghỉ giải lao"}, {"id": 33, "word": "talk show", "speech": "talk show", "pos": "n phr", "meaning": "chương trình trò chuyện truyền hình"}, {"id": 34, "word": "TV show", "speech": "TV show", "pos": "n phr", "meaning": "chương trình truyền hình"}, {"id": 35, "word": "video game", "speech": "video game", "pos": "n phr", "meaning": "trò chơi điện tử"}, {"id": 36, "word": "What's your favorite TV show?", "speech": "What's your favorite TV show?", "pos": "sentence", "meaning": "Chương trình truyền hình yêu thích của bạn là gì?"}, {"id": 37, "word": "You're kidding!", "speech": "You're kidding!", "pos": "sentence", "meaning": "Bạn đang đùa đấy à!"}]}, {"unit_num": 8, "unit": "Unit 8", "title": "Sports and Exercise", "count": 29, "items": [{"id": 1, "word": "bike (v.)", "speech": "bike", "pos": "v", "meaning": "đạp xe"}, {"id": 2, "word": "chess", "speech": "chess", "pos": "n", "meaning": "cờ vua"}, {"id": 3, "word": "energetic", "speech": "energetic", "pos": "adj", "meaning": "tràn đầy năng lượng, năng động"}, {"id": 4, "word": "favorite", "speech": "favorite", "pos": "adj / n", "meaning": "yêu thích nhất"}, {"id": 5, "word": "fries", "speech": "fries", "pos": "n (pl)", "meaning": "khoai tây chiên"}, {"id": 6, "word": "jog (v.)", "speech": "jog", "pos": "v", "meaning": "chạy bộ chậm"}, {"id": 7, "word": "pool", "speech": "pool", "pos": "n", "meaning": "hồ bơi; trò bida lỗ"}, {"id": 8, "word": "run", "speech": "run", "pos": "v", "meaning": "chạy"}, {"id": 9, "word": "ski", "speech": "ski", "pos": "v", "meaning": "trượt tuyết"}, {"id": 10, "word": "skiing", "speech": "skiing", "pos": "n", "meaning": "môn trượt tuyết"}, {"id": 11, "word": "swim", "speech": "swim", "pos": "v", "meaning": "bơi lội"}, {"id": 12, "word": "windsurfing", "speech": "windsurfing", "pos": "n", "meaning": "môn lướt ván buồm"}, {"id": 13, "word": "work out", "speech": "work out", "pos": "phr.v", "meaning": "tập thể hình, rèn luyện thân thể"}, {"id": 14, "word": "(be) in great shape", "speech": "be in great shape", "pos": "idiom", "meaning": "có thân hình/sức khỏe rất tốt, cân đối"}, {"id": 15, "word": "can't stand", "speech": "can't stand", "pos": "idiom", "meaning": "không thể chịu đựng được, rất ghét"}, {"id": 16, "word": "during the week", "speech": "during the week", "pos": "prep phr", "meaning": "trong tuần (từ thứ Hai đến thứ Sáu)"}, {"id": 17, "word": "go to a gym", "speech": "go to a gym", "pos": "v phr", "meaning": "đi đến phòng tập thể hình"}, {"id": 18, "word": "keep in shape", "speech": "keep in shape", "pos": "idiom", "meaning": "giữ dáng, duy trì vóc dáng cân đối"}, {"id": 19, "word": "Let's see.", "speech": "Let's see.", "pos": "sentence", "meaning": "Để xem nào."}, {"id": 20, "word": "not really", "speech": "not really", "pos": "adv phr", "meaning": "không hẳn, thực sự là không"}, {"id": 21, "word": "play baseball", "speech": "play baseball", "pos": "v phr", "meaning": "chơi bóng chày"}, {"id": 22, "word": "play basketball", "speech": "play basketball", "pos": "v phr", "meaning": "chơi bóng rổ"}, {"id": 23, "word": "play golf", "speech": "play golf", "pos": "v phr", "meaning": "chơi đánh gôn (golf)"}, {"id": 24, "word": "play soccer", "speech": "play soccer", "pos": "v phr", "meaning": "chơi bóng đá"}, {"id": 25, "word": "play tennis", "speech": "play tennis", "pos": "v phr", "meaning": "chơi quần vợt (tennis)"}, {"id": 26, "word": "play volleyball", "speech": "play volleyball", "pos": "v phr", "meaning": "chơi bóng chuyền"}, {"id": 27, "word": "ride a bike", "speech": "ride a bike", "pos": "v phr", "meaning": "đi xe đạp, đạp xe"}, {"id": 28, "word": "soccer fan", "speech": "soccer fan", "pos": "n phr", "meaning": "người hâm mộ bóng đá"}, {"id": 29, "word": "sports club", "speech": "sports club", "pos": "n phr", "meaning": "câu lạc bộ thể thao"}]}, {"unit_num": 9, "unit": "Unit 9", "title": "Locations", "count": 41, "items": [{"id": 1, "word": "battery", "speech": "battery", "pos": "n", "meaning": "cục pin"}, {"id": 2, "word": "bed", "speech": "bed", "pos": "n", "meaning": "cái giường"}, {"id": 3, "word": "bedside", "speech": "bedside", "pos": "n / adj", "meaning": "cạnh giường, đầu giường"}, {"id": 4, "word": "behind", "speech": "behind", "pos": "prep", "meaning": "ở đằng sau, phía sau"}, {"id": 5, "word": "belong", "speech": "belong", "pos": "v", "meaning": "thuộc về"}, {"id": 6, "word": "belt", "speech": "belt", "pos": "n", "meaning": "thắt lưng, dây nịt"}, {"id": 7, "word": "beside", "speech": "beside", "pos": "prep", "meaning": "bên cạnh, kế bên"}, {"id": 8, "word": "between", "speech": "between", "pos": "prep", "meaning": "ở giữa (hai vật/người)"}, {"id": 9, "word": "bookcase", "speech": "bookcase", "pos": "n", "meaning": "tủ sách"}, {"id": 10, "word": "bookshelf", "speech": "bookshelf", "pos": "n", "meaning": "kệ sách, giá sách"}, {"id": 11, "word": "bottom", "speech": "bottom", "pos": "n / adj", "meaning": "phần đáy, ở dưới cùng"}, {"id": 12, "word": "case", "speech": "case", "pos": "n", "meaning": "hộp đựng, vỏ bọc"}, {"id": 13, "word": "computer", "speech": "computer", "pos": "n", "meaning": "máy vi tính"}, {"id": 14, "word": "corner", "speech": "corner", "pos": "n", "meaning": "góc (phòng/bàn/phố)"}, {"id": 15, "word": "cushions", "speech": "cushions", "pos": "n (pl)", "meaning": "những chiếc gối tựa, đệm lót"}, {"id": 16, "word": "dictionary", "speech": "dictionary", "pos": "n", "meaning": "từ điển"}, {"id": 17, "word": "doorknob", "speech": "doorknob", "pos": "n", "meaning": "tay nắm cửa"}, {"id": 18, "word": "drawer", "speech": "drawer", "pos": "n", "meaning": "ngăn kéo"}, {"id": 19, "word": "empty", "speech": "empty", "pos": "adj", "meaning": "trống rỗng"}, {"id": 20, "word": "hang", "speech": "hang", "pos": "v", "meaning": "treo, móc"}, {"id": 21, "word": "hook", "speech": "hook", "pos": "n", "meaning": "cái móc treo"}, {"id": 22, "word": "plant", "speech": "plant", "pos": "n", "meaning": "cây cảnh, thực vật"}, {"id": 23, "word": "remind", "speech": "remind", "pos": "v", "meaning": "nhắc nhở"}, {"id": 24, "word": "sofa", "speech": "sofa", "pos": "n", "meaning": "ghế sô-pha"}, {"id": 25, "word": "table", "speech": "table", "pos": "n", "meaning": "cái bàn"}, {"id": 26, "word": "window", "speech": "window", "pos": "n", "meaning": "cửa sổ"}, {"id": 27, "word": "across from", "speech": "across from", "pos": "prep phr", "meaning": "đối diện với"}, {"id": 28, "word": "against the wall", "speech": "against the wall", "pos": "prep phr", "meaning": "tựa vào tường, sát vách tường"}, {"id": 29, "word": "coffee table", "speech": "coffee table", "pos": "n phr", "meaning": "bàn uống trà / bàn phòng khách"}, {"id": 30, "word": "dinner table", "speech": "dinner table", "pos": "n phr", "meaning": "bàn ăn tối"}, {"id": 31, "word": "end table", "speech": "end table", "pos": "n phr", "meaning": "bàn nhỏ đặt cạnh ghế sofa/giường"}, {"id": 32, "word": "in the middle of", "speech": "in the middle of", "pos": "prep phr", "meaning": "ở chính giữa của"}, {"id": 33, "word": "magazine rack", "speech": "magazine rack", "pos": "n phr", "meaning": "giá để tạp chí"}, {"id": 34, "word": "next to", "speech": "next to", "pos": "prep phr", "meaning": "bên cạnh, sát cạnh"}, {"id": 35, "word": "on the right/left", "speech": "on the right or left", "pos": "prep phr", "meaning": "ở phía bên phải/trái"}, {"id": 36, "word": "on top of", "speech": "on top of", "pos": "prep phr", "meaning": "ở trên cùng của, trên đỉnh của"}, {"id": 37, "word": "plant stand", "speech": "plant stand", "pos": "n phr", "meaning": "kệ/đôn để chậu cây cảnh"}, {"id": 38, "word": "remote control", "speech": "remote control", "pos": "n phr", "meaning": "điều khiển từ xa"}, {"id": 39, "word": "sheets of paper", "speech": "sheets of paper", "pos": "n phr (pl)", "meaning": "những tờ giấy"}, {"id": 40, "word": "tennis racket", "speech": "tennis racket", "pos": "n phr", "meaning": "vợt đánh quần vợt (tennis)"}, {"id": 41, "word": "to the right/left", "speech": "to the right or left", "pos": "prep phr", "meaning": "về phía bên phải/trái"}]}, {"unit_num": 10, "unit": "Unit 10", "title": "The Family", "count": 29, "items": [{"id": 1, "word": "aunt", "speech": "aunt", "pos": "n", "meaning": "cô, dì, thím, mợ, bác gái"}, {"id": 2, "word": "cage", "speech": "cage", "pos": "n", "meaning": "cái lồng, chuồng"}, {"id": 3, "word": "countryside", "speech": "countryside", "pos": "n", "meaning": "vùng nông thôn, miền quê"}, {"id": 4, "word": "cousin", "speech": "cousin", "pos": "n", "meaning": "anh/chị/em họ"}, {"id": 5, "word": "grandmother", "speech": "grandmother", "pos": "n", "meaning": "bà (nội/ngoại)"}, {"id": 6, "word": "grandparents", "speech": "grandparents", "pos": "n (pl)", "meaning": "ông bà (nội/ngoại)"}, {"id": 7, "word": "great-grandfather", "speech": "great-grandfather", "pos": "n", "meaning": "cụ ông (bố của ông/bà)"}, {"id": 8, "word": "just", "speech": "just", "pos": "adv", "meaning": "chỉ; vừa mới"}, {"id": 9, "word": "library", "speech": "library", "pos": "n", "meaning": "thư viện"}, {"id": 10, "word": "nephew", "speech": "nephew", "pos": "n", "meaning": "cháu trai (con của anh/chị/em)"}, {"id": 11, "word": "niece", "speech": "niece", "pos": "n", "meaning": "cháu gái (con của anh/chị/em)"}, {"id": 12, "word": "older", "speech": "older", "pos": "adj (comp)", "meaning": "lớn tuổi hơn"}, {"id": 13, "word": "oldest", "speech": "oldest", "pos": "adj (super)", "meaning": "lớn tuổi nhất"}, {"id": 14, "word": "only child", "speech": "only child", "pos": "n phr", "meaning": "con một"}, {"id": 15, "word": "parrots", "speech": "parrots", "pos": "n (pl)", "meaning": "những con vẹt"}, {"id": 16, "word": "software", "speech": "software", "pos": "n", "meaning": "phần mềm"}, {"id": 17, "word": "twins", "speech": "twins", "pos": "n (pl)", "meaning": "cặp song sinh, sinh đôi"}, {"id": 18, "word": "uncle", "speech": "uncle", "pos": "n", "meaning": "chú, bác, cậu, dượng"}, {"id": 19, "word": "wild", "speech": "wild", "pos": "adj", "meaning": "hoang dã, cuồng nhiệt"}, {"id": 20, "word": "wish", "speech": "wish", "pos": "v / n", "meaning": "ước, mong ước"}, {"id": 21, "word": "youngest", "speech": "youngest", "pos": "adj (super)", "meaning": "nhỏ tuổi nhất, út"}, {"id": 22, "word": "be really into (something)", "speech": "be really into something", "pos": "idiom", "meaning": "thực sự đam mê/thích thú (cái gì)"}, {"id": 23, "word": "bird watching", "speech": "bird watching", "pos": "n phr", "meaning": "hoạt động ngắm chim chóc"}, {"id": 24, "word": "boss (someone) around", "speech": "boss someone around", "pos": "phr.v", "meaning": "ra lệnh, sai khiến (ai đó) đủ điều"}, {"id": 25, "word": "free time", "speech": "free time", "pos": "n phr", "meaning": "thời gian rảnh rỗi"}, {"id": 26, "word": "in the middle", "speech": "in the middle", "pos": "prep phr", "meaning": "ở giữa (con thứ)"}, {"id": 27, "word": "look like (somebody)", "speech": "look like somebody", "pos": "v phr", "meaning": "trông giống như (ai đó)"}, {"id": 28, "word": "looks young for (60)", "speech": "looks young for 60", "pos": "v phr", "meaning": "trông trẻ hơn so với tuổi (60)"}, {"id": 29, "word": "on the right/left", "speech": "on the right or left", "pos": "prep phr", "meaning": "ở phía bên phải/trái"}]}, {"unit_num": 11, "unit": "Unit 11", "title": "Entertainment", "count": 25, "items": [{"id": 1, "word": "action (movie)", "speech": "action movie", "pos": "n phr", "meaning": "(phim) hành động"}, {"id": 2, "word": "appointment", "speech": "appointment", "pos": "n", "meaning": "cuộc hẹn"}, {"id": 3, "word": "computer games", "speech": "computer games", "pos": "n phr (pl)", "meaning": "trò chơi trên máy tính"}, {"id": 4, "word": "downtown", "speech": "downtown", "pos": "n / adv", "meaning": "khu trung tâm thành phố"}, {"id": 5, "word": "eat out", "speech": "eat out", "pos": "phr.v", "meaning": "đi ăn ngoài (nhà hàng, quán ăn)"}, {"id": 6, "word": "exercise", "speech": "exercise", "pos": "v / n", "meaning": "tập thể dục; bài tập thể dục"}, {"id": 7, "word": "free", "speech": "free", "pos": "adj", "meaning": "rảnh rỗi; miễn phí"}, {"id": 8, "word": "gym", "speech": "gym", "pos": "n", "meaning": "phòng tập thể hình"}, {"id": 9, "word": "park", "speech": "park", "pos": "n", "meaning": "công viên"}, {"id": 10, "word": "picnic", "speech": "picnic", "pos": "n", "meaning": "chuyến dã ngoại"}, {"id": 11, "word": "rent (movies)", "speech": "rent movies", "pos": "v phr", "meaning": "thuê (băng/đĩa phim)"}, {"id": 12, "word": "ride", "speech": "ride", "pos": "n / v", "meaning": "chuyến đi (xe đạp/ngựa); cưỡi, đi xe"}, {"id": 13, "word": "sand", "speech": "sand", "pos": "n", "meaning": "cát"}, {"id": 14, "word": "Are you free?", "speech": "Are you free?", "pos": "sentence", "meaning": "Bạn có rảnh không?"}, {"id": 15, "word": "bike ride", "speech": "bike ride", "pos": "n phr", "meaning": "chuyến đạp xe dạo chơi"}, {"id": 16, "word": "fine with me", "speech": "fine with me", "pos": "phr", "meaning": "đối với tôi thì ổn cả / sao cũng được"}, {"id": 17, "word": "go dancing", "speech": "go dancing", "pos": "v phr", "meaning": "đi khiêu vũ, đi nhảy"}, {"id": 18, "word": "go for coffee", "speech": "go for coffee", "pos": "v phr", "meaning": "đi uống cà phê"}, {"id": 19, "word": "go rollerblading", "speech": "go rollerblading", "pos": "v phr", "meaning": "đi trượt patin một hàng bánh"}, {"id": 20, "word": "I'd love to, but...", "speech": "I'd love to, but", "pos": "sentence", "meaning": "Tôi rất muốn, nhưng mà..."}, {"id": 21, "word": "I'm free.", "speech": "I'm free.", "pos": "sentence", "meaning": "Tôi đang rảnh."}, {"id": 22, "word": "see a movie", "speech": "see a movie", "pos": "v phr", "meaning": "xem một bộ phim"}, {"id": 23, "word": "Some other time, maybe.", "speech": "Some other time, maybe.", "pos": "sentence", "meaning": "Để khi khác vậy nhé, có lẽ thế."}, {"id": 24, "word": "Sounds great.", "speech": "Sounds great.", "pos": "sentence", "meaning": "Nghe tuyệt đấy."}, {"id": 25, "word": "Sure.", "speech": "Sure.", "pos": "adv / excl", "meaning": "Chắc chắn rồi / Được chứ."}]}, {"unit_num": 12, "unit": "Unit 12", "title": "Prices", "count": 40, "items": [{"id": 1, "word": "afford", "speech": "afford", "pos": "v", "meaning": "đủ khả năng chi trả"}, {"id": 2, "word": "altogether", "speech": "altogether", "pos": "adv", "meaning": "tổng cộng, tất cả"}, {"id": 3, "word": "camera", "speech": "camera", "pos": "n", "meaning": "máy ảnh"}, {"id": 4, "word": "change (n.)", "speech": "change", "pos": "n", "meaning": "tiền thừa, tiền thối lại; tiền lẻ"}, {"id": 5, "word": "clinic", "speech": "clinic", "pos": "n", "meaning": "phòng khám"}, {"id": 6, "word": "earrings", "speech": "earrings", "pos": "n (pl)", "meaning": "khuyên tai, bông tai"}, {"id": 7, "word": "expense", "speech": "expense", "pos": "n", "meaning": "chi phí, khoản tiêu pha"}, {"id": 8, "word": "hospital", "speech": "hospital", "pos": "n", "meaning": "bệnh viện"}, {"id": 9, "word": "laptop", "speech": "laptop", "pos": "n", "meaning": "máy tính xách tay"}, {"id": 10, "word": "newspaper", "speech": "newspaper", "pos": "n", "meaning": "báo, tờ báo"}, {"id": 11, "word": "own", "speech": "own", "pos": "v / adj", "meaning": "sở hữu; của chính mình"}, {"id": 12, "word": "population", "speech": "population", "pos": "n", "meaning": "dân số"}, {"id": 13, "word": "reasonable (price)", "speech": "reasonable price", "pos": "adj", "meaning": "(giá cả) hợp lý, phải chăng"}, {"id": 14, "word": "rent (v.)", "speech": "rent", "pos": "v", "meaning": "thuê, mướn"}, {"id": 15, "word": "rich", "speech": "rich", "pos": "adj", "meaning": "giàu có"}, {"id": 16, "word": "shampoo", "speech": "shampoo", "pos": "n", "meaning": "dầu gội đầu"}, {"id": 17, "word": "shoes", "speech": "shoes", "pos": "n (pl)", "meaning": "đôi giày"}, {"id": 18, "word": "tax", "speech": "tax", "pos": "n", "meaning": "thuế"}, {"id": 19, "word": "tuition", "speech": "tuition", "pos": "n", "meaning": "học phí"}, {"id": 20, "word": "a big expense", "speech": "a big expense", "pos": "n phr", "meaning": "một khoản chi phí lớn"}, {"id": 21, "word": "a very high tax", "speech": "a very high tax", "pos": "n phr", "meaning": "một mức thuế rất cao"}, {"id": 22, "word": "digital camera", "speech": "digital camera", "pos": "n phr", "meaning": "máy ảnh kỹ thuật số"}, {"id": 23, "word": "DVD", "speech": "DVD", "pos": "n", "meaning": "đĩa DVD"}, {"id": 24, "word": "health insurance", "speech": "health insurance", "pos": "n phr", "meaning": "bảo hiểm y tế"}, {"id": 25, "word": "here's your change", "speech": "here's your change", "pos": "sentence", "meaning": "đây là tiền thừa của bạn"}, {"id": 26, "word": "I'll take (something)", "speech": "I'll take something", "pos": "sentence", "meaning": "Tôi sẽ lấy/mua (món đồ này)"}, {"id": 27, "word": "just looking", "speech": "just looking", "pos": "phr", "meaning": "chỉ đang xem thôi (chưa mua)"}, {"id": 28, "word": "keep the price down", "speech": "keep the price down", "pos": "v phr", "meaning": "giữ mức giá thấp, kìm giá xuống"}, {"id": 29, "word": "movie ticket", "speech": "movie ticket", "pos": "n phr", "meaning": "vé xem phim"}, {"id": 30, "word": "neighborhood", "speech": "neighborhood", "pos": "n", "meaning": "khu phố, vùng lân cận"}, {"id": 31, "word": "on sale", "speech": "on sale", "pos": "prep phr", "meaning": "đang giảm giá, hạ giá"}, {"id": 32, "word": "price range", "speech": "price range", "pos": "n phr", "meaning": "khung giá, khoảng giá"}, {"id": 33, "word": "private schools", "speech": "private schools", "pos": "n phr (pl)", "meaning": "các trường tư thục"}, {"id": 34, "word": "public schools", "speech": "public schools", "pos": "n phr (pl)", "meaning": "các trường công lập"}, {"id": 35, "word": "(a pair of) sneakers", "speech": "a pair of sneakers", "pos": "n phr", "meaning": "(một đôi) giày thể thao"}, {"id": 36, "word": "That comes to (total)", "speech": "That comes to total", "pos": "sentence", "meaning": "Tổng cộng hết là..."}, {"id": 37, "word": "That's (total)", "speech": "That's total", "pos": "sentence", "meaning": "Của bạn hết tất cả là..."}, {"id": 38, "word": "try (something) on", "speech": "try something on", "pos": "phr.v", "meaning": "mặc/đi thử (quần áo, giày dép)"}, {"id": 39, "word": "twice that (amount)", "speech": "twice that amount", "pos": "phr", "meaning": "gấp đôi số lượng/số tiền đó"}, {"id": 40, "word": "two for (a dollar)", "speech": "two for a dollar", "pos": "phr", "meaning": "hai cái giá (một đô la)"}]}, {"unit_num": 13, "unit": "Unit 13", "title": "Restaurants", "count": 53, "items": [{"id": 1, "word": "appetizer", "speech": "appetizer", "pos": "n", "meaning": "món khai vị"}, {"id": 2, "word": "awful", "speech": "awful", "pos": "adj", "meaning": "tồi tệ, kinh khủng"}, {"id": 3, "word": "broccoli", "speech": "broccoli", "pos": "n", "meaning": "bông cải xanh, súp lơ xanh"}, {"id": 4, "word": "cake", "speech": "cake", "pos": "n", "meaning": "bánh ngọt, bánh kem"}, {"id": 5, "word": "carrots", "speech": "carrots", "pos": "n (pl)", "meaning": "cà rốt"}, {"id": 6, "word": "cheesecake", "speech": "cheesecake", "pos": "n", "meaning": "bánh phô mai (cheesecake)"}, {"id": 7, "word": "chicken", "speech": "chicken", "pos": "n", "meaning": "thịt gà"}, {"id": 8, "word": "coffee", "speech": "coffee", "pos": "n", "meaning": "cà phê"}, {"id": 9, "word": "cola", "speech": "cola", "pos": "n", "meaning": "nước ngọt có ga (cô-la)"}, {"id": 10, "word": "creamy", "speech": "creamy", "pos": "adj", "meaning": "béo ngậy, nhiều kem"}, {"id": 11, "word": "delicious", "speech": "delicious", "pos": "adj", "meaning": "ngon miệng"}, {"id": 12, "word": "desserts", "speech": "desserts", "pos": "n (pl)", "meaning": "các món tráng miệng"}, {"id": 13, "word": "drinks", "speech": "drinks", "pos": "n (pl)", "meaning": "đồ uống, thức uống"}, {"id": 14, "word": "dry", "speech": "dry", "pos": "adj", "meaning": "khô (thức ăn)"}, {"id": 15, "word": "fish", "speech": "fish", "pos": "n", "meaning": "cá"}, {"id": 16, "word": "fresh", "speech": "fresh", "pos": "adj", "meaning": "tươi (thực phẩm)"}, {"id": 17, "word": "fried", "speech": "fried", "pos": "adj", "meaning": "chiên, rán"}, {"id": 18, "word": "fries", "speech": "fries", "pos": "n (pl)", "meaning": "khoai tây chiên"}, {"id": 19, "word": "frozen", "speech": "frozen", "pos": "adj", "meaning": "đông lạnh"}, {"id": 20, "word": "grilled", "speech": "grilled", "pos": "adj", "meaning": "nướng (trên vỉ)"}, {"id": 21, "word": "juice", "speech": "juice", "pos": "n", "meaning": "nước ép trái cây"}, {"id": 22, "word": "oily", "speech": "oily", "pos": "adj", "meaning": "nhiều dầu mỡ, ngấy dầu"}, {"id": 23, "word": "order (v.)", "speech": "order", "pos": "v", "meaning": "gọi món, đặt hàng"}, {"id": 24, "word": "overcooked", "speech": "overcooked", "pos": "adj", "meaning": "nấu quá chín, bị kỹ quá"}, {"id": 25, "word": "peas", "speech": "peas", "pos": "n (pl)", "meaning": "đậu Hà Lan"}, {"id": 26, "word": "salad", "speech": "salad", "pos": "n", "meaning": "món rau trộn (sa-lát)"}, {"id": 27, "word": "salty", "speech": "salty", "pos": "adj", "meaning": "mặn"}, {"id": 28, "word": "seafood", "speech": "seafood", "pos": "n", "meaning": "hải sản"}, {"id": 29, "word": "slices (of pizza)", "speech": "slices of pizza", "pos": "n phr (pl)", "meaning": "những lát/miếng (bánh pizza)"}, {"id": 30, "word": "soda", "speech": "soda", "pos": "n", "meaning": "nước sô-đa, nước ngọt có ga"}, {"id": 31, "word": "soup", "speech": "soup", "pos": "n", "meaning": "món súp, canh"}, {"id": 32, "word": "spaghetti", "speech": "spaghetti", "pos": "n", "meaning": "mì Ý (spaghetti)"}, {"id": 33, "word": "special", "speech": "special", "pos": "adj / n", "meaning": "đặc biệt; món đặc biệt trong ngày"}, {"id": 34, "word": "spicy", "speech": "spicy", "pos": "adj", "meaning": "cay"}, {"id": 35, "word": "starving", "speech": "starving", "pos": "adj", "meaning": "đói meo, chết đói"}, {"id": 36, "word": "steak", "speech": "steak", "pos": "n", "meaning": "bít tết (thịt bò nướng/áp chảo)"}, {"id": 37, "word": "stir-fry", "speech": "stir-fry", "pos": "n / v", "meaning": "món xào; xào nhanh trên lửa lớn"}, {"id": 38, "word": "tasty", "speech": "tasty", "pos": "adj", "meaning": "ngon, đậm đà"}, {"id": 39, "word": "tea", "speech": "tea", "pos": "n", "meaning": "trà"}, {"id": 40, "word": "tough", "speech": "tough", "pos": "adj", "meaning": "dai (thịt)"}, {"id": 41, "word": "vegetables", "speech": "vegetables", "pos": "n (pl)", "meaning": "rau củ quả"}, {"id": 42, "word": "apple pie", "speech": "apple pie", "pos": "n phr", "meaning": "bánh nướng nhân táo"}, {"id": 43, "word": "chocolate mousse", "speech": "chocolate mousse", "pos": "n phr", "meaning": "bánh mousse sô-cô-la"}, {"id": 44, "word": "egg rolls", "speech": "egg rolls", "pos": "n phr (pl)", "meaning": "món chả giò / nem rán"}, {"id": 45, "word": "fried chicken", "speech": "fried chicken", "pos": "n phr", "meaning": "gà rán"}, {"id": 46, "word": "house dressing", "speech": "house dressing", "pos": "n phr", "meaning": "nước sốt trộn salad đặc trưng của quán"}, {"id": 47, "word": "ice cream", "speech": "ice cream", "pos": "n phr", "meaning": "kem"}, {"id": 48, "word": "iced tea", "speech": "iced tea", "pos": "n phr", "meaning": "trà đá"}, {"id": 49, "word": "main dish", "speech": "main dish", "pos": "n phr", "meaning": "món chính"}, {"id": 50, "word": "on a diet", "speech": "on a diet", "pos": "prep phr", "meaning": "đang ăn kiêng"}, {"id": 51, "word": "send (food) back", "speech": "send food back", "pos": "phr.v", "meaning": "trả lại (thức ăn cho nhà bếp)"}, {"id": 52, "word": "shrimp cocktail", "speech": "shrimp cocktail", "pos": "n phr", "meaning": "món tôm khai vị dùng kèm sốt cocktail"}, {"id": 53, "word": "steamed vegetables", "speech": "steamed vegetables", "pos": "n phr (pl)", "meaning": "rau củ hấp"}]}, {"unit_num": 14, "unit": "Unit 14", "title": "Small Talk", "count": 28, "items": [{"id": 1, "word": "appear (in movies)", "speech": "appear in movies", "pos": "v phr", "meaning": "xuất hiện / đóng (trong các bộ phim)"}, {"id": 2, "word": "concert", "speech": "concert", "pos": "n", "meaning": "buổi hòa nhạc"}, {"id": 3, "word": "exhibition", "speech": "exhibition", "pos": "n", "meaning": "cuộc triển lãm"}, {"id": 4, "word": "greet", "speech": "greet", "pos": "v", "meaning": "chào hỏi"}, {"id": 5, "word": "guests", "speech": "guests", "pos": "n (pl)", "meaning": "khách mời"}, {"id": 6, "word": "surprise", "speech": "surprise", "pos": "n / v", "meaning": "sự bất ngờ; làm ngạc nhiên"}, {"id": 7, "word": "trip (n.)", "speech": "trip", "pos": "n", "meaning": "chuyến đi"}, {"id": 8, "word": "be a big star", "speech": "be a big star", "pos": "v phr", "meaning": "là một ngôi sao lớn"}, {"id": 9, "word": "end a conversation", "speech": "end a conversation", "pos": "v phr", "meaning": "kết thúc một cuộc trò chuyện"}, {"id": 10, "word": "get together", "speech": "get together", "pos": "phr.v", "meaning": "tụ tập, gặp mặt nhau"}, {"id": 11, "word": "got to run", "speech": "got to run", "pos": "idiom", "meaning": "phải đi gấp bây giờ"}, {"id": 12, "word": "Hope to see you again soon.", "speech": "Hope to see you again soon.", "pos": "sentence", "meaning": "Hy vọng sớm gặp lại bạn."}, {"id": 13, "word": "How have you been?", "speech": "How have you been?", "pos": "sentence", "meaning": "Dạo này bạn thế nào?"}, {"id": 14, "word": "How's everything?", "speech": "How's everything?", "pos": "sentence", "meaning": "Mọi chuyện thế nào rồi?"}, {"id": 15, "word": "I haven't seen you for a long time.", "speech": "I haven't seen you for a long time.", "pos": "sentence", "meaning": "Lâu lắm rồi tôi không gặp bạn."}, {"id": 16, "word": "in ages", "speech": "in ages", "pos": "prep phr", "meaning": "trong một thời gian rất dài (lâu lắm rồi)"}, {"id": 17, "word": "It's been great seeing you again.", "speech": "It's been great seeing you again.", "pos": "sentence", "meaning": "Thật tuyệt khi được gặp lại bạn."}, {"id": 18, "word": "It's been nice talking to you.", "speech": "It's been nice talking to you.", "pos": "sentence", "meaning": "Rất vui khi được trò chuyện với bạn."}, {"id": 19, "word": "Keep in touch.", "speech": "Keep in touch.", "pos": "sentence", "meaning": "Giữ liên lạc nhé."}, {"id": 20, "word": "leave the company", "speech": "leave the company", "pos": "v phr", "meaning": "rời khỏi công ty, nghỉ việc ở công ty"}, {"id": 21, "word": "look at the time", "speech": "look at the time", "pos": "v phr", "meaning": "nhìn thời gian kìa (muộn rồi)"}, {"id": 22, "word": "look forward to (something)", "speech": "look forward to something", "pos": "phr.v", "meaning": "mong đợi, trông mong (điều gì)"}, {"id": 23, "word": "Nice to see you.", "speech": "Nice to see you.", "pos": "sentence", "meaning": "Rất vui được gặp bạn."}, {"id": 24, "word": "not too bad", "speech": "not too bad", "pos": "phr", "meaning": "không tệ lắm, cũng bình thường"}, {"id": 25, "word": "Talk to you later.", "speech": "Talk to you later.", "pos": "sentence", "meaning": "Nói chuyện với bạn sau nhé."}, {"id": 26, "word": "these days", "speech": "these days", "pos": "adv phr", "meaning": "dạo này, những ngày này"}, {"id": 27, "word": "work late", "speech": "work late", "pos": "v phr", "meaning": "làm việc muộn, tăng ca muộn"}, {"id": 28, "word": "You're kidding!", "speech": "You're kidding!", "pos": "sentence", "meaning": "Bạn đùa đấy à!"}]}, {"unit_num": 15, "unit": "Unit 15", "title": "Vacations", "count": 32, "items": [{"id": 1, "word": "awful", "speech": "awful", "pos": "adj", "meaning": "tồi tệ, kinh khủng"}, {"id": 2, "word": "camping", "speech": "camping", "pos": "n", "meaning": "hoạt động cắm trại"}, {"id": 3, "word": "crowded", "speech": "crowded", "pos": "adj", "meaning": "đông đúc"}, {"id": 4, "word": "fantastic", "speech": "fantastic", "pos": "adj", "meaning": "tuyệt vời, xuất sắc"}, {"id": 5, "word": "hard (difficult)", "speech": "hard difficult", "pos": "adj", "meaning": "khó khăn, vất vả"}, {"id": 6, "word": "museums", "speech": "museums", "pos": "n (pl)", "meaning": "các viện bảo tàng"}, {"id": 7, "word": "peaceful", "speech": "peaceful", "pos": "adj", "meaning": "yên bình, thanh bình"}, {"id": 8, "word": "quiet", "speech": "quiet", "pos": "adj", "meaning": "yên tĩnh"}, {"id": 9, "word": "relatives", "speech": "relatives", "pos": "n (pl)", "meaning": "họ hàng, người thân"}, {"id": 10, "word": "sightseeing", "speech": "sightseeing", "pos": "n", "meaning": "việc ngắm cảnh, tham quan"}, {"id": 11, "word": "slept", "speech": "slept", "pos": "v (past/p.p)", "meaning": "đã ngủ (quá khứ của sleep)"}, {"id": 12, "word": "so-so", "speech": "so-so", "pos": "adj / adv", "meaning": "bình thường, tàm tạm"}, {"id": 13, "word": "souvenirs", "speech": "souvenirs", "pos": "n (pl)", "meaning": "đồ lưu niệm"}, {"id": 14, "word": "sunburn", "speech": "sunburn", "pos": "n", "meaning": "sự cháy nắng, vết cháy nắng"}, {"id": 15, "word": "sunshine", "speech": "sunshine", "pos": "n", "meaning": "ánh nắng mặt trời"}, {"id": 16, "word": "terrible", "speech": "terrible", "pos": "adj", "meaning": "tồi tệ, khủng khiếp"}, {"id": 17, "word": "terrific", "speech": "terrific", "pos": "adj", "meaning": "tuyệt vời, cực kỳ tốt"}, {"id": 18, "word": "wonderful", "speech": "wonderful", "pos": "adj", "meaning": "tuyệt diệu, rất tuyệt"}, {"id": 19, "word": "all right", "speech": "all right", "pos": "adj / adv", "meaning": "ổn thỏa, khá ổn"}, {"id": 20, "word": "cooking course", "speech": "cooking course", "pos": "n phr", "meaning": "khóa học nấu ăn"}, {"id": 21, "word": "fall off (skis)", "speech": "fall off skis", "pos": "phr.v", "meaning": "ngã khỏi (ván trượt tuyết)"}, {"id": 22, "word": "get a tan", "speech": "get a tan", "pos": "v phr", "meaning": "làm rám nắng da, tắm nắng cho nâu da"}, {"id": 23, "word": "go away (on vacation)", "speech": "go away on vacation", "pos": "phr.v", "meaning": "đi xa (đi nghỉ mát)"}, {"id": 24, "word": "go out of town", "speech": "go out of town", "pos": "v phr", "meaning": "đi ra khỏi thành phố / đi tỉnh khác"}, {"id": 25, "word": "kept warm", "speech": "kept warm", "pos": "v phr (past)", "meaning": "đã giữ ấm"}, {"id": 26, "word": "nothing special", "speech": "nothing special", "pos": "n phr", "meaning": "không có gì đặc biệt"}, {"id": 27, "word": "not bad", "speech": "not bad", "pos": "adj phr", "meaning": "không tệ, khá tốt"}, {"id": 28, "word": "pretty boring", "speech": "pretty boring", "pos": "adj phr", "meaning": "khá nhàm chán"}, {"id": 29, "word": "really great", "speech": "really great", "pos": "adj phr", "meaning": "thực sự rất tuyệt"}, {"id": 30, "word": "stay home", "speech": "stay home", "pos": "v phr", "meaning": "ở nhà"}, {"id": 31, "word": "stay on (skis)", "speech": "stay on skis", "pos": "phr.v", "meaning": "giữ thăng bằng trên (ván trượt tuyết)"}, {"id": 32, "word": "very disappointing", "speech": "very disappointing", "pos": "adj phr", "meaning": "rất đáng thất vọng"}]}, {"unit_num": 16, "unit": "Unit 16", "title": "Apartment Living", "count": 30, "items": [{"id": 1, "word": "apartment", "speech": "apartment", "pos": "n", "meaning": "căn hộ"}, {"id": 2, "word": "bathroom", "speech": "bathroom", "pos": "n", "meaning": "phòng tắm, nhà vệ sinh"}, {"id": 3, "word": "bathtub", "speech": "bathtub", "pos": "n", "meaning": "bồn tắm"}, {"id": 4, "word": "bed", "speech": "bed", "pos": "n", "meaning": "cái giường"}, {"id": 5, "word": "bedroom", "speech": "bedroom", "pos": "n", "meaning": "phòng ngủ"}, {"id": 6, "word": "bookshelf", "speech": "bookshelf", "pos": "n", "meaning": "kệ sách, giá sách"}, {"id": 7, "word": "cheap", "speech": "cheap", "pos": "adj", "meaning": "rẻ"}, {"id": 8, "word": "comfortable", "speech": "comfortable", "pos": "adj", "meaning": "thoải mái, tiện nghi"}, {"id": 9, "word": "dresser", "speech": "dresser", "pos": "n", "meaning": "tủ có ngăn kéo đựng quần áo"}, {"id": 10, "word": "find", "speech": "find", "pos": "v", "meaning": "tìm thấy"}, {"id": 11, "word": "floor", "speech": "floor", "pos": "n", "meaning": "sàn nhà; tầng lầu"}, {"id": 12, "word": "furniture", "speech": "furniture", "pos": "n", "meaning": "đồ nội thất"}, {"id": 13, "word": "huge", "speech": "huge", "pos": "adj", "meaning": "khổng lồ, rất rộng lớn"}, {"id": 14, "word": "kitchen", "speech": "kitchen", "pos": "n", "meaning": "nhà bếp, phòng bếp"}, {"id": 15, "word": "mattress", "speech": "mattress", "pos": "n", "meaning": "tấm nệm (đệm giường)"}, {"id": 16, "word": "refrigerator", "speech": "refrigerator", "pos": "n", "meaning": "tủ lạnh"}, {"id": 17, "word": "shower", "speech": "shower", "pos": "n", "meaning": "vòi hoa sen; phòng tắm vòi sen"}, {"id": 18, "word": "small", "speech": "small", "pos": "adj", "meaning": "nhỏ"}, {"id": 19, "word": "sofa", "speech": "sofa", "pos": "n", "meaning": "ghế sô-pha"}, {"id": 20, "word": "stove", "speech": "stove", "pos": "n", "meaning": "bếp nấu (bếp ga/điện)"}, {"id": 21, "word": "toilet", "speech": "toilet", "pos": "n", "meaning": "bồn cầu; nhà vệ sinh"}, {"id": 22, "word": "all over (the floor)", "speech": "all over the floor", "pos": "prep phr", "meaning": "khắp cả (trên sàn nhà)"}, {"id": 23, "word": "check out", "speech": "check out", "pos": "phr.v", "meaning": "xem thử, kiểm tra; trả phòng"}, {"id": 24, "word": "coffee table", "speech": "coffee table", "pos": "n phr", "meaning": "bàn uống nước phòng khách"}, {"id": 25, "word": "dinner table", "speech": "dinner table", "pos": "n phr", "meaning": "bàn ăn tối"}, {"id": 26, "word": "living room", "speech": "living room", "pos": "n phr", "meaning": "phòng khách"}, {"id": 27, "word": "managed to", "speech": "managed to", "pos": "v phr", "meaning": "đã xoay xở để làm được"}, {"id": 28, "word": "MP3 player", "speech": "MP3 player", "pos": "n phr", "meaning": "máy nghe nhạc MP3"}, {"id": 29, "word": "pick up (buy)", "speech": "pick up buy", "pos": "phr.v", "meaning": "mua tiện tay, tậu về"}, {"id": 30, "word": "take a bath", "speech": "take a bath", "pos": "v phr", "meaning": "tắm bồn"}]}, {"unit_num": 17, "unit": "Unit 17", "title": "Hopes and Plans", "count": 35, "items": [{"id": 1, "word": "actor", "speech": "actor", "pos": "n", "meaning": "nam diễn viên"}, {"id": 2, "word": "at the moment", "speech": "at the moment", "pos": "prep phr", "meaning": "vào lúc này, hiện tại"}, {"id": 3, "word": "babysit", "speech": "babysit", "pos": "v", "meaning": "trông trẻ hộ"}, {"id": 4, "word": "break up (with someone)", "speech": "break up with someone", "pos": "phr.v", "meaning": "chia tay (với ai đó)"}, {"id": 5, "word": "dangerous", "speech": "dangerous", "pos": "adj", "meaning": "nguy hiểm"}, {"id": 6, "word": "doctor", "speech": "doctor", "pos": "n", "meaning": "bác sĩ"}, {"id": 7, "word": "dream about/of", "speech": "dream about or of", "pos": "v phr", "meaning": "mơ về, mơ ước về"}, {"id": 8, "word": "excited", "speech": "excited", "pos": "adj", "meaning": "hào hứng, phấn khích"}, {"id": 9, "word": "garage", "speech": "garage", "pos": "n", "meaning": "nhà để xe, ga-ra sửa xe"}, {"id": 10, "word": "get married", "speech": "get married", "pos": "v phr", "meaning": "kết hôn, lập gia đình"}, {"id": 11, "word": "graduate (from college)", "speech": "graduate from college", "pos": "v phr", "meaning": "tốt nghiệp (đại học/cao đẳng)"}, {"id": 12, "word": "hang around", "speech": "hang around", "pos": "phr.v", "meaning": "la cà, đi loanh quanh"}, {"id": 13, "word": "make money", "speech": "make money", "pos": "v phr", "meaning": "kiếm tiền"}, {"id": 14, "word": "movie theater", "speech": "movie theater", "pos": "n phr", "meaning": "rạp chiếu phim"}, {"id": 15, "word": "nervous", "speech": "nervous", "pos": "adj", "meaning": "lo lắng, hồi hộp"}, {"id": 16, "word": "pool", "speech": "pool", "pos": "n", "meaning": "hồ bơi"}, {"id": 17, "word": "professional", "speech": "professional", "pos": "adj / n", "meaning": "chuyên nghiệp; vận động viên/chuyên gia chuyên nghiệp"}, {"id": 18, "word": "relax", "speech": "relax", "pos": "v", "meaning": "thư giãn, nghỉ ngơi"}, {"id": 19, "word": "singer", "speech": "singer", "pos": "n", "meaning": "ca sĩ"}, {"id": 20, "word": "surf", "speech": "surf", "pos": "v", "meaning": "lướt sóng"}, {"id": 21, "word": "take it easy", "speech": "take it easy", "pos": "idiom", "meaning": "nghỉ ngơi thoải mái, bình tĩnh đừng căng thẳng"}, {"id": 22, "word": "travel", "speech": "travel", "pos": "v", "meaning": "đi du lịch"}, {"id": 23, "word": "unfortunately", "speech": "unfortunately", "pos": "adv", "meaning": "thật không may, đáng tiếc là"}, {"id": 24, "word": "yard", "speech": "yard", "pos": "n", "meaning": "cái sân"}, {"id": 25, "word": "Better you than me!", "speech": "Better you than me!", "pos": "idiom", "meaning": "Bạn làm thì hơn, chứ tôi thì chịu!"}, {"id": 26, "word": "be famous", "speech": "be famous", "pos": "v phr", "meaning": "trở nên nổi tiếng"}, {"id": 27, "word": "be rich", "speech": "be rich", "pos": "v phr", "meaning": "trở nên giàu có"}, {"id": 28, "word": "clothing store", "speech": "clothing store", "pos": "n phr", "meaning": "cửa hàng quần áo"}, {"id": 29, "word": "hang out (with someone)", "speech": "hang out with someone", "pos": "phr.v", "meaning": "đi chơi, tụ tập (với ai đó)"}, {"id": 30, "word": "have children", "speech": "have children", "pos": "v phr", "meaning": "có con, sinh con"}, {"id": 31, "word": "medical degree", "speech": "medical degree", "pos": "n phr", "meaning": "bằng y khoa"}, {"id": 32, "word": "medical school", "speech": "medical school", "pos": "n phr", "meaning": "trường đại học y khoa"}, {"id": 33, "word": "part-time job", "speech": "part-time job", "pos": "n phr", "meaning": "công việc bán thời gian"}, {"id": 34, "word": "right away", "speech": "right away", "pos": "adv phr", "meaning": "ngay lập tức"}, {"id": 35, "word": "spend time (with someone)", "speech": "spend time with someone", "pos": "v phr", "meaning": "dành thời gian (bên ai đó)"}]}, {"unit_num": 18, "unit": "Unit 18", "title": "The Weather", "count": 31, "items": [{"id": 1, "word": "cloudy", "speech": "cloudy", "pos": "adj", "meaning": "nhiều mây, âm u"}, {"id": 2, "word": "cold", "speech": "cold", "pos": "adj", "meaning": "lạnh"}, {"id": 3, "word": "cool", "speech": "cool", "pos": "adj", "meaning": "mát mẻ"}, {"id": 4, "word": "cooler", "speech": "cooler", "pos": "adj (comp)", "meaning": "mát hơn, lạnh hơn một chút"}, {"id": 5, "word": "dry", "speech": "dry", "pos": "adj", "meaning": "khô ráo, hanh khô"}, {"id": 6, "word": "expecting", "speech": "expecting", "pos": "v (pres.p)", "meaning": "đang dự báo / chờ đón (thời tiết)"}, {"id": 7, "word": "heavy (rain, snow)", "speech": "heavy rain, snow", "pos": "adj", "meaning": "to, nặng hạt, dày (mưa to, tuyết dày)"}, {"id": 8, "word": "hot", "speech": "hot", "pos": "adj", "meaning": "nóng"}, {"id": 9, "word": "humid", "speech": "humid", "pos": "adj", "meaning": "ẩm ướt, độ ẩm cao"}, {"id": 10, "word": "pool", "speech": "pool", "pos": "n", "meaning": "hồ bơi"}, {"id": 11, "word": "rain", "speech": "rain", "pos": "n / v", "meaning": "mưa; trời mưa"}, {"id": 12, "word": "rainy", "speech": "rainy", "pos": "adj", "meaning": "có mưa, nhiều mưa"}, {"id": 13, "word": "snowing", "speech": "snowing", "pos": "v (pres.p)", "meaning": "tuyết đang rơi"}, {"id": 14, "word": "snowstorm", "speech": "snowstorm", "pos": "n", "meaning": "bão tuyết"}, {"id": 15, "word": "storm", "speech": "storm", "pos": "n", "meaning": "cơn bão, giông bão"}, {"id": 16, "word": "sunny", "speech": "sunny", "pos": "adj", "meaning": "có nắng, nắng đẹp"}, {"id": 17, "word": "swim", "speech": "swim", "pos": "v", "meaning": "bơi lội"}, {"id": 18, "word": "warm", "speech": "warm", "pos": "adj", "meaning": "ấm áp"}, {"id": 19, "word": "wet", "speech": "wet", "pos": "adj", "meaning": "ướt, ẩm ướt"}, {"id": 20, "word": "windy", "speech": "windy", "pos": "adj", "meaning": "nhiều gió, lộng gió"}, {"id": 21, "word": "air conditioner", "speech": "air conditioner", "pos": "n phr", "meaning": "máy điều hòa nhiệt độ"}, {"id": 22, "word": "coming out", "speech": "coming out", "pos": "phr.v", "meaning": "đang ló ra (mặt trời)"}, {"id": 23, "word": "get warmer/cooler", "speech": "get warmer or cooler", "pos": "v phr", "meaning": "trở nên ấm hơn/mát hơn"}, {"id": 24, "word": "go down (temperature)", "speech": "go down temperature", "pos": "phr.v", "meaning": "hạ xuống, giảm xuống (nhiệt độ)"}, {"id": 25, "word": "No way!", "speech": "No way!", "pos": "excl", "meaning": "Không đời nào! Không thể tin được!"}, {"id": 26, "word": "put (something) on", "speech": "put something on", "pos": "phr.v", "meaning": "mặc/đội/mang (quần áo, trang phục) vào"}, {"id": 27, "word": "Remember to wear your...", "speech": "Remember to wear your", "pos": "sentence", "meaning": "Hãy nhớ mặc/mang... của bạn vào."}, {"id": 28, "word": "snowball fight", "speech": "snowball fight", "pos": "n phr", "meaning": "trò ném bóng tuyết"}, {"id": 29, "word": "the high (temperature)", "speech": "the high temperature", "pos": "n phr", "meaning": "mức nhiệt độ cao nhất (trong ngày)"}, {"id": 30, "word": "the low (temperature)", "speech": "the low temperature", "pos": "n phr", "meaning": "mức nhiệt độ thấp nhất (trong ngày)"}, {"id": 31, "word": "weather forecast", "speech": "weather forecast", "pos": "n phr", "meaning": "dự báo thời tiết"}]}, {"unit_num": 19, "unit": "Unit 19", "title": "Shopping", "count": 46, "items": [{"id": 1, "word": "(watch) band", "speech": "watch band", "pos": "n phr", "meaning": "dây đeo (đồng hồ)"}, {"id": 2, "word": "blend", "speech": "blend", "pos": "n / v", "meaning": "sự pha trộn (chất liệu vải); pha trộn"}, {"id": 3, "word": "bookstore", "speech": "bookstore", "pos": "n", "meaning": "hiệu sách, nhà sách"}, {"id": 4, "word": "cotton", "speech": "cotton", "pos": "n", "meaning": "vải bông, chất liệu cotton"}, {"id": 5, "word": "customer", "speech": "customer", "pos": "n", "meaning": "khách hàng"}, {"id": 6, "word": "design", "speech": "design", "pos": "n / v", "meaning": "thiết kế, kiểu dáng"}, {"id": 7, "word": "drugstore", "speech": "drugstore", "pos": "n", "meaning": "hiệu thuốc, cửa hàng dược mỹ phẩm"}, {"id": 8, "word": "dryclean", "speech": "dryclean", "pos": "v", "meaning": "giặt khô"}, {"id": 9, "word": "envelopes", "speech": "envelopes", "pos": "n (pl)", "meaning": "những chiếc phong bì"}, {"id": 10, "word": "fabric", "speech": "fabric", "pos": "n", "meaning": "vải, chất liệu vải"}, {"id": 11, "word": "fresh", "speech": "fresh", "pos": "adj", "meaning": "tươi mới"}, {"id": 12, "word": "linen", "speech": "linen", "pos": "n", "meaning": "vải lanh (linen)"}, {"id": 13, "word": "magazines", "speech": "magazines", "pos": "n (pl)", "meaning": "các tạp chí"}, {"id": 14, "word": "mystery", "speech": "mystery", "pos": "n", "meaning": "truyện/phim trinh thám, bí ẩn"}, {"id": 15, "word": "narrow", "speech": "narrow", "pos": "adj", "meaning": "hẹp, chật"}, {"id": 16, "word": "necklace", "speech": "necklace", "pos": "n", "meaning": "dây chuyền, vòng cổ"}, {"id": 17, "word": "pair (of shoes)", "speech": "pair of shoes", "pos": "n phr", "meaning": "đôi (giày)"}, {"id": 18, "word": "pockets", "speech": "pockets", "pos": "n (pl)", "meaning": "những chiếc túi (quần/áo)"}, {"id": 19, "word": "salespeople", "speech": "salespeople", "pos": "n (pl)", "meaning": "những nhân viên bán hàng"}, {"id": 20, "word": "shampoo", "speech": "shampoo", "pos": "n", "meaning": "dầu gội đầu"}, {"id": 21, "word": "silk", "speech": "silk", "pos": "n", "meaning": "vải lụa, tơ lụa"}, {"id": 22, "word": "stripes", "speech": "stripes", "pos": "n (pl)", "meaning": "những đường kẻ sọc"}, {"id": 23, "word": "take (purchase)", "speech": "take purchase", "pos": "v", "meaning": "lấy, mua (món hàng)"}, {"id": 24, "word": "tie", "speech": "tie", "pos": "n", "meaning": "cà vạt"}, {"id": 25, "word": "vegetables", "speech": "vegetables", "pos": "n (pl)", "meaning": "rau củ quả"}, {"id": 26, "word": "wide", "speech": "wide", "pos": "adj", "meaning": "rộng"}, {"id": 27, "word": "air mail", "speech": "air mail", "pos": "n phr", "meaning": "thư gửi bằng đường hàng không"}, {"id": 28, "word": "be crazy about (something)", "speech": "be crazy about something", "pos": "idiom", "meaning": "phát cuồng vì, cực kỳ yêu thích (cái gì)"}, {"id": 29, "word": "Cash or credit?", "speech": "Cash or credit?", "pos": "question", "meaning": "Thanh toán bằng tiền mặt hay thẻ tín dụng ạ?"}, {"id": 30, "word": "clothing store", "speech": "clothing store", "pos": "n phr", "meaning": "cửa hàng quần áo"}, {"id": 31, "word": "grocery store", "speech": "grocery store", "pos": "n phr", "meaning": "cửa hàng tạp hóa / thực phẩm"}, {"id": 32, "word": "gym shorts", "speech": "gym shorts", "pos": "n phr (pl)", "meaning": "quần đùi tập thể dục"}, {"id": 33, "word": "hand wash", "speech": "hand wash", "pos": "v / n phr", "meaning": "giặt bằng tay"}, {"id": 34, "word": "jewelry store", "speech": "jewelry store", "pos": "n phr", "meaning": "cửa hàng trang sức"}, {"id": 35, "word": "just looking around", "speech": "just looking around", "pos": "phr", "meaning": "chỉ đang đi xem dạo quanh thôi"}, {"id": 36, "word": "look nice on (someone)", "speech": "look nice on someone", "pos": "v phr", "meaning": "trông đẹp/hợp khi (ai đó) mặc vào"}, {"id": 37, "word": "machine wash", "speech": "machine wash", "pos": "v / n phr", "meaning": "giặt bằng máy"}, {"id": 38, "word": "on sale", "speech": "on sale", "pos": "prep phr", "meaning": "đang được giảm giá, khuyến mãi"}, {"id": 39, "word": "play a (CD)", "speech": "play a CD", "pos": "v phr", "meaning": "bật/phát một (đĩa CD)"}, {"id": 40, "word": "regular mail", "speech": "regular mail", "pos": "n phr", "meaning": "thư gửi thường (đường bộ)"}, {"id": 41, "word": "ring (something) up", "speech": "ring something up", "pos": "phr.v", "meaning": "tính tiền (món hàng) vào máy thu ngân"}, {"id": 42, "word": "running shoes", "speech": "running shoes", "pos": "n phr (pl)", "meaning": "giày chạy bộ"}, {"id": 43, "word": "short sleeves", "speech": "short sleeves", "pos": "n phr (pl)", "meaning": "tay áo ngắn"}, {"id": 44, "word": "sporting goods store", "speech": "sporting goods store", "pos": "n phr", "meaning": "cửa hàng dụng cụ thể thao"}, {"id": 45, "word": "stationery store", "speech": "stationery store", "pos": "n phr", "meaning": "cửa hàng văn phòng phẩm"}, {"id": 46, "word": "That's a good deal!", "speech": "That's a good deal!", "pos": "sentence", "meaning": "Đó là một món hời đấy! / Giá thế là quá tốt!"}]}, {"unit_num": 20, "unit": "Unit 20", "title": "Describing Things", "count": 41, "items": [{"id": 1, "word": "aircraft", "speech": "aircraft", "pos": "n", "meaning": "máy bay, tàu bay"}, {"id": 2, "word": "backpack", "speech": "backpack", "pos": "n", "meaning": "ba lô"}, {"id": 3, "word": "briefcase", "speech": "briefcase", "pos": "n", "meaning": "cặp tài liệu, cặp công sở"}, {"id": 4, "word": "case", "speech": "case", "pos": "n", "meaning": "hộp đựng, bao đựng, vali nhỏ"}, {"id": 5, "word": "cheap-looking", "speech": "cheap-looking", "pos": "adj", "meaning": "trông có vẻ rẻ tiền"}, {"id": 6, "word": "checked", "speech": "checked", "pos": "adj", "meaning": "kẻ ca-rô"}, {"id": 7, "word": "design", "speech": "design", "pos": "n", "meaning": "thiết kế, hoa văn"}, {"id": 8, "word": "driven", "speech": "driven", "pos": "v (p.p) / adj", "meaning": "được lái, được điều khiển"}, {"id": 9, "word": "frames (glasses)", "speech": "frames glasses", "pos": "n (pl)", "meaning": "gọng (kính)"}, {"id": 10, "word": "handbag", "speech": "handbag", "pos": "n", "meaning": "túi xách nữ"}, {"id": 11, "word": "handle", "speech": "handle", "pos": "n", "meaning": "tay cầm, quai xách"}, {"id": 12, "word": "hurts", "speech": "hurts", "pos": "v", "meaning": "làm đau, bị đau"}, {"id": 13, "word": "initials", "speech": "initials", "pos": "n (pl)", "meaning": "chữ cái viết tắt tên"}, {"id": 14, "word": "keys", "speech": "keys", "pos": "n (pl)", "meaning": "những chiếc chìa khóa"}, {"id": 15, "word": "leather", "speech": "leather", "pos": "n / adj", "meaning": "chất liệu da thuộc; bằng da"}, {"id": 16, "word": "left (v.)", "speech": "left", "pos": "v (past/p.p)", "meaning": "đã bỏ quên, để quên"}, {"id": 17, "word": "letter", "speech": "letter", "pos": "n", "meaning": "bức thư; chữ cái"}, {"id": 18, "word": "newsstand", "speech": "newsstand", "pos": "n", "meaning": "quầy bán báo, sạp báo"}, {"id": 19, "word": "novel", "speech": "novel", "pos": "n", "meaning": "tiểu thuyết"}, {"id": 20, "word": "passport", "speech": "passport", "pos": "n", "meaning": "hộ chiếu"}, {"id": 21, "word": "plastic", "speech": "plastic", "pos": "n / adj", "meaning": "nhựa; bằng nhựa"}, {"id": 22, "word": "rings", "speech": "rings", "pos": "n (pl)", "meaning": "những chiếc nhẫn"}, {"id": 23, "word": "strap", "speech": "strap", "pos": "n", "meaning": "dây đeo, quai đeo"}, {"id": 24, "word": "striped", "speech": "striped", "pos": "adj", "meaning": "có kẻ sọc"}, {"id": 25, "word": "subway", "speech": "subway", "pos": "n", "meaning": "tàu điện ngầm"}, {"id": 26, "word": "suitcase", "speech": "suitcase", "pos": "n", "meaning": "va-li"}, {"id": 27, "word": "sunglasses", "speech": "sunglasses", "pos": "n (pl)", "meaning": "kính râm, kính mát"}, {"id": 28, "word": "wallet", "speech": "wallet", "pos": "n", "meaning": "ví tiền (thường gấp gọn)"}, {"id": 29, "word": "wheels", "speech": "wheels", "pos": "n (pl)", "meaning": "những chiếc bánh xe"}, {"id": 30, "word": "beach bag", "speech": "beach bag", "pos": "n phr", "meaning": "túi đi biển"}, {"id": 31, "word": "business papers", "speech": "business papers", "pos": "n phr (pl)", "meaning": "giấy tờ công việc/kinh doanh"}, {"id": 32, "word": "coffee shop", "speech": "coffee shop", "pos": "n phr", "meaning": "quán cà phê"}, {"id": 33, "word": "credit cards", "speech": "credit cards", "pos": "n phr (pl)", "meaning": "thẻ tín dụng"}, {"id": 34, "word": "get off (the bus)", "speech": "get off the bus", "pos": "phr.v", "meaning": "xuống (xe buýt)"}, {"id": 35, "word": "lost and found", "speech": "lost and found", "pos": "n phr", "meaning": "quầy/phòng quản lý đồ thất lạc"}, {"id": 36, "word": "on board", "speech": "on board", "pos": "prep phr", "meaning": "trên tàu / trên máy bay"}, {"id": 37, "word": "pocket knife", "speech": "pocket knife", "pos": "n phr", "meaning": "dao bỏ túi, dao gấp"}, {"id": 38, "word": "pull out", "speech": "pull out", "pos": "phr.v", "meaning": "kéo ra, rút ra"}, {"id": 39, "word": "running shoes", "speech": "running shoes", "pos": "n phr (pl)", "meaning": "giày chạy bộ"}, {"id": 40, "word": "travel abroad", "speech": "travel abroad", "pos": "v phr", "meaning": "đi du lịch nước ngoài"}, {"id": 41, "word": "turn in", "speech": "turn in", "pos": "phr.v", "meaning": "giao nộp, trả lại (đồ nhặt được)"}]}, {"unit_num": 21, "unit": "Unit 21", "title": "Directions", "count": 25, "items": [{"id": 1, "word": "block", "speech": "block", "pos": "n", "meaning": "dãy nhà, khu phố"}, {"id": 2, "word": "church", "speech": "church", "pos": "n", "meaning": "nhà thờ"}, {"id": 3, "word": "corner", "speech": "corner", "pos": "n", "meaning": "góc phố"}, {"id": 4, "word": "cross", "speech": "cross", "pos": "v", "meaning": "băng qua, đi qua (đường)"}, {"id": 5, "word": "footbridge", "speech": "footbridge", "pos": "n", "meaning": "cầu vượt dành cho người đi bộ"}, {"id": 6, "word": "hotel", "speech": "hotel", "pos": "n", "meaning": "khách sạn"}, {"id": 7, "word": "intersection", "speech": "intersection", "pos": "n", "meaning": "ngã tư, giao lộ"}, {"id": 8, "word": "(traffic) light", "speech": "traffic light", "pos": "n phr", "meaning": "đèn (giao thông)"}, {"id": 9, "word": "river", "speech": "river", "pos": "n", "meaning": "con sông"}, {"id": 10, "word": "snacks", "speech": "snacks", "pos": "n (pl)", "meaning": "đồ ăn vặt, bữa ăn nhẹ"}, {"id": 11, "word": "supermarket", "speech": "supermarket", "pos": "n", "meaning": "siêu thị"}, {"id": 12, "word": "come out of (the subway)", "speech": "come out of the subway", "pos": "phr.v", "meaning": "đi ra khỏi (ga tàu điện ngầm)"}, {"id": 13, "word": "end of the block", "speech": "end of the block", "pos": "n phr", "meaning": "cuối dãy phố"}, {"id": 14, "word": "gas station", "speech": "gas station", "pos": "n phr", "meaning": "trạm xăng, cây xăng"}, {"id": 15, "word": "glass building", "speech": "glass building", "pos": "n phr", "meaning": "tòa nhà bằng kính"}, {"id": 16, "word": "go straight for...", "speech": "go straight for", "pos": "v phr", "meaning": "đi thẳng khoảng..."}, {"id": 17, "word": "go through", "speech": "go through", "pos": "phr.v", "meaning": "đi xuyên qua"}, {"id": 18, "word": "go up/down", "speech": "go up or down", "pos": "phr.v", "meaning": "đi lên/đi xuống (dọc theo con phố/cầu thang)"}, {"id": 19, "word": "my place", "speech": "my place", "pos": "n phr", "meaning": "nhà/chỗ ở của tôi"}, {"id": 20, "word": "on the corner of ... and...", "speech": "on the corner of  and", "pos": "prep phr", "meaning": "ở góc giao giữa đường ... và đường ..."}, {"id": 21, "word": "on the right/left", "speech": "on the right or left", "pos": "prep phr", "meaning": "ở phía bên phải/trái"}, {"id": 22, "word": "pick up", "speech": "pick up", "pos": "phr.v", "meaning": "đón (ai đó); mua/lấy (đồ)"}, {"id": 23, "word": "take a right/left", "speech": "take a right or left", "pos": "v phr", "meaning": "rẽ phải / rẽ trái"}, {"id": 24, "word": "tennis racket", "speech": "tennis racket", "pos": "n phr", "meaning": "vợt đánh tennis"}, {"id": 25, "word": "turn right/left", "speech": "turn right or left", "pos": "v phr", "meaning": "rẽ phải / rẽ trái"}]}, {"unit_num": 22, "unit": "Unit 22", "title": "People We Know", "count": 39, "items": [{"id": 1, "word": "easygoing", "speech": "easygoing", "pos": "adj", "meaning": "dễ tính, thoải mái"}, {"id": 2, "word": "forget", "speech": "forget", "pos": "v", "meaning": "quên"}, {"id": 3, "word": "friendly", "speech": "friendly", "pos": "adj", "meaning": "thân thiện"}, {"id": 4, "word": "funny", "speech": "funny", "pos": "adj", "meaning": "hài hước, vui tính"}, {"id": 5, "word": "generous", "speech": "generous", "pos": "adj", "meaning": "hào phóng, rộng lượng"}, {"id": 6, "word": "guy", "speech": "guy", "pos": "n", "meaning": "anh chàng, gã"}, {"id": 7, "word": "hardworking", "speech": "hardworking", "pos": "adj", "meaning": "chăm chỉ, chịu khó"}, {"id": 8, "word": "kind", "speech": "kind", "pos": "adj", "meaning": "tốt bụng, tử tế"}, {"id": 9, "word": "laugh", "speech": "laugh", "pos": "v / n", "meaning": "cười; tiếng cười"}, {"id": 10, "word": "lazy", "speech": "lazy", "pos": "adj", "meaning": "lười biếng"}, {"id": 11, "word": "neat", "speech": "neat", "pos": "adj", "meaning": "gọn gàng, ngăn nắp"}, {"id": 12, "word": "outgoing", "speech": "outgoing", "pos": "adj", "meaning": "hướng ngoại, cởi mở, hòa đồng"}, {"id": 13, "word": "party (v.)", "speech": "party", "pos": "v", "meaning": "tiệc tùng, dự tiệc vui chơi"}, {"id": 14, "word": "present", "speech": "present", "pos": "n", "meaning": "món quà"}, {"id": 15, "word": "serious", "speech": "serious", "pos": "adj", "meaning": "nghiêm túc"}, {"id": 16, "word": "share", "speech": "share", "pos": "v", "meaning": "chia sẻ"}, {"id": 17, "word": "shy", "speech": "shy", "pos": "adj", "meaning": "nhút nhát, rụt rè, hay ngại"}, {"id": 18, "word": "similar", "speech": "similar", "pos": "adj", "meaning": "tương tự, giống nhau"}, {"id": 19, "word": "smart", "speech": "smart", "pos": "adj", "meaning": "thông minh, sắc sảo"}, {"id": 20, "word": "smile", "speech": "smile", "pos": "v / n", "meaning": "mỉm cười; nụ cười"}, {"id": 21, "word": "sociable", "speech": "sociable", "pos": "adj", "meaning": "hòa đồng, thích giao thiệp"}, {"id": 22, "word": "talkative", "speech": "talkative", "pos": "adj", "meaning": "nói nhiều, hoạt ngôn"}, {"id": 23, "word": "weird", "speech": "weird", "pos": "adj", "meaning": "kỳ lạ, lập dị"}, {"id": 24, "word": "a little crazy at times", "speech": "a little crazy at times", "pos": "adj phr", "meaning": "đôi lúc hơi điên rồ / nổi loạn một chút"}, {"id": 25, "word": "be in a bad mood", "speech": "be in a bad mood", "pos": "idiom", "meaning": "đang có tâm trạng tồi tệ / bực bội"}, {"id": 26, "word": "chew gum", "speech": "chew gum", "pos": "v phr", "meaning": "nhai kẹo cao su"}, {"id": 27, "word": "easy to talk to", "speech": "easy to talk to", "pos": "adj phr", "meaning": "dễ bắt chuyện, dễ tâm sự"}, {"id": 28, "word": "expect (something) in return", "speech": "expect something in return", "pos": "v phr", "meaning": "mong đợi (điều gì đó) đáp trả lại"}, {"id": 29, "word": "get along", "speech": "get along", "pos": "phr.v", "meaning": "hòa thuận, hợp nhau"}, {"id": 30, "word": "just like", "speech": "just like", "pos": "prep phr", "meaning": "giống hệt như"}, {"id": 31, "word": "kind of (a little)", "speech": "kind of a little", "pos": "adv phr", "meaning": "hơi hơi, có phần"}, {"id": 32, "word": "life story", "speech": "life story", "pos": "n phr", "meaning": "câu chuyện cuộc đời"}, {"id": 33, "word": "make funny faces", "speech": "make funny faces", "pos": "v phr", "meaning": "làm mặt xấu / biểu cảm khuôn mặt hài hước"}, {"id": 34, "word": "make people laugh", "speech": "make people laugh", "pos": "v phr", "meaning": "làm mọi người cười"}, {"id": 35, "word": "perfect for (someone)", "speech": "perfect for someone", "pos": "adj phr", "meaning": "hoàn hảo dành cho (ai đó)"}, {"id": 36, "word": "skipped class", "speech": "skipped class", "pos": "v phr (past)", "meaning": "đã trốn học, cúp cua"}, {"id": 37, "word": "talk to (oneself)", "speech": "talk to oneself", "pos": "v phr", "meaning": "tự nói chuyện một mình (lẩm bẩm)"}, {"id": 38, "word": "tell jokes", "speech": "tell jokes", "pos": "v phr", "meaning": "kể chuyện cười"}, {"id": 39, "word": "top student", "speech": "top student", "pos": "n phr", "meaning": "học sinh đứng đầu / sinh viên xuất sắc"}]}, {"unit_num": 23, "unit": "Unit 23", "title": "Places", "count": 32, "items": [{"id": 1, "word": "beach", "speech": "beach", "pos": "n", "meaning": "bãi biển"}, {"id": 2, "word": "Carnival", "speech": "Carnival", "pos": "n", "meaning": "lễ hội hóa trang đường phố (Carnival)"}, {"id": 3, "word": "climate", "speech": "climate", "pos": "n", "meaning": "khí hậu"}, {"id": 4, "word": "comfortable", "speech": "comfortable", "pos": "adj", "meaning": "thoải mái, dễ chịu"}, {"id": 5, "word": "crowded", "speech": "crowded", "pos": "adj", "meaning": "đông đúc"}, {"id": 6, "word": "dangerous", "speech": "dangerous", "pos": "adj", "meaning": "nguy hiểm"}, {"id": 7, "word": "fantastic", "speech": "fantastic", "pos": "adj", "meaning": "tuyệt vời"}, {"id": 8, "word": "fresh (air)", "speech": "fresh air", "pos": "adj", "meaning": "(không khí) trong lành"}, {"id": 9, "word": "government", "speech": "government", "pos": "n", "meaning": "chính phủ"}, {"id": 10, "word": "harbor", "speech": "harbor", "pos": "n", "meaning": "bến cảng"}, {"id": 11, "word": "lovely", "speech": "lovely", "pos": "adj", "meaning": "đẹp, dễ thương, thú vị"}, {"id": 12, "word": "modern", "speech": "modern", "pos": "adj", "meaning": "hiện đại"}, {"id": 13, "word": "nightclubs", "speech": "nightclubs", "pos": "n (pl)", "meaning": "các hộp đêm, câu lạc bộ đêm"}, {"id": 14, "word": "nightlife", "speech": "nightlife", "pos": "n", "meaning": "cuộc sống giải trí về đêm"}, {"id": 15, "word": "noisy", "speech": "noisy", "pos": "adj", "meaning": "ồn ào"}, {"id": 16, "word": "polluted", "speech": "polluted", "pos": "adj", "meaning": "bị ô nhiễm"}, {"id": 17, "word": "popular", "speech": "popular", "pos": "adj", "meaning": "nổi tiếng, phổ biến"}, {"id": 18, "word": "reasonable (price)", "speech": "reasonable price", "pos": "adj", "meaning": "(giá cả) hợp lý, phải chăng"}, {"id": 19, "word": "romantic", "speech": "romantic", "pos": "adj", "meaning": "lãng mạn"}, {"id": 20, "word": "scenic", "speech": "scenic", "pos": "adj", "meaning": "có phong cảnh đẹp, nên thơ"}, {"id": 21, "word": "sea", "speech": "sea", "pos": "n", "meaning": "biển"}, {"id": 22, "word": "theater", "speech": "theater", "pos": "n", "meaning": "nhà hát, rạp kịch"}, {"id": 23, "word": "tourist", "speech": "tourist", "pos": "n", "meaning": "khách du lịch, du khách"}, {"id": 24, "word": "tower", "speech": "tower", "pos": "n", "meaning": "ngọn tháp, tòa tháp"}, {"id": 25, "word": "ugly", "speech": "ugly", "pos": "adj", "meaning": "xấu xí"}, {"id": 26, "word": "cable car", "speech": "cable car", "pos": "n phr", "meaning": "cáp treo / xe điện cáp"}, {"id": 27, "word": "for sure", "speech": "for sure", "pos": "adv phr", "meaning": "chắc chắn"}, {"id": 28, "word": "get around", "speech": "get around", "pos": "phr.v", "meaning": "đi lại, di chuyển xung quanh"}, {"id": 29, "word": "opera house", "speech": "opera house", "pos": "n phr", "meaning": "nhà hát lớn, nhà hát opera"}, {"id": 30, "word": "pay a fortune for (something)", "speech": "pay a fortune for something", "pos": "idiom", "meaning": "trả một số tiền khổng lồ cho (cái gì)"}, {"id": 31, "word": "subway system", "speech": "subway system", "pos": "n phr", "meaning": "hệ thống tàu điện ngầm"}, {"id": 32, "word": "transportation system", "speech": "transportation system", "pos": "n phr", "meaning": "hệ thống giao thông vận tải"}]}, {"unit_num": 24, "unit": "Unit 24", "title": "Health", "count": 48, "items": [{"id": 1, "word": "arms", "speech": "arms", "pos": "n (pl)", "meaning": "hai cánh tay"}, {"id": 2, "word": "back", "speech": "back", "pos": "n", "meaning": "cái lưng"}, {"id": 3, "word": "backache", "speech": "backache", "pos": "n", "meaning": "chứng đau lưng"}, {"id": 4, "word": "bandaged", "speech": "bandaged", "pos": "adj", "meaning": "được băng bó"}, {"id": 5, "word": "broken", "speech": "broken", "pos": "adj", "meaning": "bị gãy (xương/tay/chân)"}, {"id": 6, "word": "cut (oneself)", "speech": "cut oneself", "pos": "v phr", "meaning": "bị đứt tay/chân, làm đứt (mình)"}, {"id": 7, "word": "drugstore", "speech": "drugstore", "pos": "n", "meaning": "hiệu thuốc"}, {"id": 8, "word": "ear", "speech": "ear", "pos": "n", "meaning": "cái tai"}, {"id": 9, "word": "energy", "speech": "energy", "pos": "n", "meaning": "năng lượng, sức lực"}, {"id": 10, "word": "eye", "speech": "eye", "pos": "n", "meaning": "con mắt"}, {"id": 11, "word": "feet", "speech": "feet", "pos": "n (pl)", "meaning": "đôi bàn chân"}, {"id": 12, "word": "fingers", "speech": "fingers", "pos": "n (pl)", "meaning": "những ngón tay"}, {"id": 13, "word": "flu", "speech": "flu", "pos": "n", "meaning": "bệnh cúm"}, {"id": 14, "word": "foot", "speech": "foot", "pos": "n", "meaning": "bàn chân"}, {"id": 15, "word": "hands", "speech": "hands", "pos": "n (pl)", "meaning": "đôi bàn tay"}, {"id": 16, "word": "head", "speech": "head", "pos": "n", "meaning": "cái đầu"}, {"id": 17, "word": "hiking", "speech": "hiking", "pos": "n", "meaning": "hoạt động đi bộ đường dài leo núi"}, {"id": 18, "word": "hurt", "speech": "hurt", "pos": "v / adj", "meaning": "làm đau, bị đau, bị thương"}, {"id": 19, "word": "knife", "speech": "knife", "pos": "n", "meaning": "con dao"}, {"id": 20, "word": "lately", "speech": "lately", "pos": "adv", "meaning": "dạo gần đây, mới đây"}, {"id": 21, "word": "left-handed", "speech": "left-handed", "pos": "adj", "meaning": "thuận tay trái"}, {"id": 22, "word": "legs", "speech": "legs", "pos": "n (pl)", "meaning": "đôi chân (cẳng chân)"}, {"id": 23, "word": "massage", "speech": "massage", "pos": "n / v", "meaning": "sự xoa bóp, mát-xa"}, {"id": 24, "word": "mouth", "speech": "mouth", "pos": "n", "meaning": "cái miệng"}, {"id": 25, "word": "nose", "speech": "nose", "pos": "n", "meaning": "cái mũi"}, {"id": 26, "word": "painful", "speech": "painful", "pos": "adj", "meaning": "đau đớn"}, {"id": 27, "word": "pills", "speech": "pills", "pos": "n (pl)", "meaning": "những viên thuốc"}, {"id": 28, "word": "right-handed", "speech": "right-handed", "pos": "adj", "meaning": "thuận tay phải"}, {"id": 29, "word": "sprain", "speech": "sprain", "pos": "v / n", "meaning": "làm bong gân; vết bong gân"}, {"id": 30, "word": "stitches", "speech": "stitches", "pos": "n (pl)", "meaning": "những mũi khâu (vết thương)"}, {"id": 31, "word": "stomach", "speech": "stomach", "pos": "n", "meaning": "dạ dày, bụng"}, {"id": 32, "word": "teeth", "speech": "teeth", "pos": "n (pl)", "meaning": "hàm răng, những chiếc răng"}, {"id": 33, "word": "toe", "speech": "toe", "pos": "n", "meaning": "ngón chân"}, {"id": 34, "word": "vitamins", "speech": "vitamins", "pos": "n (pl)", "meaning": "các loại vitamin"}, {"id": 35, "word": "can hardly walk", "speech": "can hardly walk", "pos": "v phr", "meaning": "hầu như không thể đi bộ được"}, {"id": 36, "word": "catch the flu", "speech": "catch the flu", "pos": "v phr", "meaning": "bị nhiễm cúm, mắc bệnh cúm"}, {"id": 37, "word": "deep cut", "speech": "deep cut", "pos": "n phr", "meaning": "vết cắt sâu"}, {"id": 38, "word": "fall asleep", "speech": "fall asleep", "pos": "v phr", "meaning": "ngủ thiếp đi, chìm vào giấc ngủ"}, {"id": 39, "word": "fell down", "speech": "fell down", "pos": "phr.v (past)", "meaning": "đã bị ngã xuống"}, {"id": 40, "word": "have trouble (doing something)", "speech": "have trouble doing something", "pos": "v phr", "meaning": "gặp khó khăn (khi làm việc gì đó)"}, {"id": 41, "word": "made a difference", "speech": "made a difference", "pos": "idiom (past)", "meaning": "đã tạo nên sự khác biệt / có tác dụng rõ rệt"}, {"id": 42, "word": "pull a muscle", "speech": "pull a muscle", "pos": "v phr", "meaning": "bị căng cơ, giãn cơ"}, {"id": 43, "word": "see a doctor", "speech": "see a doctor", "pos": "v phr", "meaning": "đi khám bác sĩ"}, {"id": 44, "word": "sleeping pills", "speech": "sleeping pills", "pos": "n phr (pl)", "meaning": "thuốc ngủ"}, {"id": 45, "word": "splitting headache", "speech": "splitting headache", "pos": "n phr", "meaning": "cơn đau đầu như búa bổ"}, {"id": 46, "word": "stressed out", "speech": "stressed out", "pos": "adj phr", "meaning": "căng thẳng tột độ, mệt mỏi vì áp lực"}, {"id": 47, "word": "twist (one's) ankle", "speech": "twist one's ankle", "pos": "v phr", "meaning": "bị trật/lật cổ chân (bong gân mắt cá)"}, {"id": 48, "word": "walked into (something)", "speech": "walked into something", "pos": "phr.v (past)", "meaning": "đi đâm sầm/va vào (vật gì đó)"}]}];
+
+    let currentUnitIndex = 0;
+    let ukVoices = [];
+    let selectedVoice = null;
+    let isPlayingAll = false;
+    let playAllIndex = 0;
+
+    // Initialize Tabs & Table
+    function initApp() {
+        const total = VOCAB_DATA.reduce((acc, u) => acc + u.count, 0);
+        document.getElementById('total-vocab-count').textContent = total;
+        renderTabs();
+        renderUnitContent();
+        initSpeechVoices();
+
+        document.getElementById('searchInput').addEventListener('input', () => {
+            stopPlayAll();
+            renderUnitContent();
+        });
+
+        document.getElementById('searchAllToggle').addEventListener('change', () => {
+            stopPlayAll();
+            renderUnitContent();
+        });
+    }
+
+    // Setup Web Speech API with British English (en-GB) priority
+    function initSpeechVoices() {
+        const voiceSelect = document.getElementById('voiceSelect');
+        
+        function populateVoices() {
+            const allVoices = window.speechSynthesis.getVoices();
+            if (!allVoices.length) return;
+
+            // Filter British voices first, then other English voices as fallback
+            const gbVoices = allVoices.filter(v => 
+                v.lang.toLowerCase().includes('en-gb') || 
+                v.lang.toLowerCase().includes('en_gb') ||
+                v.name.toLowerCase().includes('uk') ||
+                v.name.toLowerCase().includes('british') ||
+                v.name.toLowerCase().includes('daniel') ||
+                v.name.toLowerCase().includes('hazel') ||
+                v.name.toLowerCase().includes('libby') ||
+                v.name.toLowerCase().includes('serena')
+            );
+
+            const enVoices = allVoices.filter(v => v.lang.toLowerCase().startsWith('en'));
+            ukVoices = gbVoices.length > 0 ? gbVoices : enVoices;
+
+            voiceSelect.innerHTML = '';
+            if (ukVoices.length === 0) {
+                const opt = document.createElement('option');
+                opt.textContent = 'Mặc định trình duyệt (en-GB)';
+                voiceSelect.appendChild(opt);
+                return;
+            }
+
+            ukVoices.forEach((voice, idx) => {
+                const opt = document.createElement('option');
+                opt.value = idx;
+                opt.textContent = `${voice.name} (${voice.lang})`;
+                voiceSelect.appendChild(opt);
+            });
+
+            selectedVoice = ukVoices[0];
+        }
+
+        populateVoices();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = populateVoices;
+        }
+
+        voiceSelect.addEventListener('change', (e) => {
+            const idx = parseInt(e.target.value, 10);
+            if (!isNaN(idx) && ukVoices[idx]) {
+                selectedVoice = ukVoices[idx];
+            }
+        });
+    }
+
+    // Speak single word in British English
+    function speakWord(text, btnElement, onEndCallback = null) {
+        if (!('speechSynthesis' in window)) {
+            alert('Trình duyệt của bạn không hỗ trợ phát âm thanh Web Speech API.');
+            return;
+        }
+
+        window.speechSynthesis.cancel();
+        document.querySelectorAll('.speaker-btn.speaking').forEach(el => el.classList.remove('speaking'));
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-GB'; // Chuẩn Anh - Anh
+        if (selectedVoice) {
+            utterance.voice = selectedVoice;
+        }
+        const rate = parseFloat(document.getElementById('rateSelect').value) || 1.0;
+        utterance.rate = rate;
+
+        if (btnElement) {
+            btnElement.classList.add('speaking');
+        }
+
+        utterance.onend = () => {
+            if (btnElement) btnElement.classList.remove('speaking');
+            if (onEndCallback) onEndCallback();
+        };
+
+        utterance.onerror = () => {
+            if (btnElement) btnElement.classList.remove('speaking');
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    // Render 24 Unit Tabs
+    function renderTabs() {
+        const container = document.getElementById('tabsContainer');
+        container.innerHTML = '';
+
+        VOCAB_DATA.forEach((unitObj, index) => {
+            const btn = document.createElement('button');
+            btn.className = `tab-btn ${index === currentUnitIndex ? 'active' : ''}`;
+            btn.onclick = () => selectUnit(index);
+
+            btn.innerHTML = `
+                <div class="tab-unit-num">
+                    <span>${unitObj.unit}</span>
+                    <span class="tab-unit-count">${unitObj.count} từ</span>
+                </div>
+                <div class="tab-unit-title" title="${unitObj.title}">${unitObj.title}</div>
+            `;
+            container.appendChild(btn);
+        });
+    }
+
+    function selectUnit(index) {
+        stopPlayAll();
+        currentUnitIndex = index;
+        // Turn off global search when user clicks a specific unit tab
+        const searchAllToggle = document.getElementById('searchAllToggle');
+        if (searchAllToggle.checked) {
+            searchAllToggle.checked = false;
+        }
+        renderTabs();
+        renderUnitContent();
+    }
+
+    function renderUnitContent() {
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        const searchAll = document.getElementById('searchAllToggle').checked;
+        const tbody = document.getElementById('vocabTableBody');
+        tbody.innerHTML = '';
+
+        let rowsToRender = [];
+
+        if (searchAll && query.length > 0) {
+            VOCAB_DATA.forEach(u => {
+                u.items.forEach(item => {
+                    if (
+                        item.word.toLowerCase().includes(query) ||
+                        item.meaning.toLowerCase().includes(query) ||
+                        item.pos.toLowerCase().includes(query)
+                    ) {
+                        rowsToRender.append({ ...item, unitLabel: u.unit });
+                    }
+                });
+            });
+        } else {
+            const currentUnit = VOCAB_DATA[currentUnitIndex];
+            document.getElementById('current-tab-indicator').textContent = `Đang chọn: ${currentUnit.unit} - ${currentUnit.title}`;
+            document.getElementById('unitTitleDisplay').textContent = `${currentUnit.unit}: ${currentUnit.title}`;
+
+            rowsToRender = currentUnit.items.filter(item => {
+                if (!query) return true;
+                return (
+                    item.word.toLowerCase().includes(query) ||
+                    item.meaning.toLowerCase().includes(query) ||
+                    item.pos.toLowerCase().includes(query)
+                );
+            });
+
+            document.getElementById('unitCountDisplay').textContent =
+                `Hiển thị ${rowsToRender.length} / ${currentUnit.count} mục từ vựng (Đầy đủ 100%)`;
+        }
+
+        if (searchAll && query.length > 0) {
+            document.getElementById('unitTitleDisplay').textContent = `Kết quả tìm kiếm trên toàn bộ 24 Units`;
+            document.getElementById('unitCountDisplay').textContent = `Tìm thấy ${rowsToRender.length} từ vựng khớp với "${query}"`;
+        }
+
+        if (rowsToRender.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4" class="empty-state">
+                        Không tìm thấy từ vựng nào khớp với từ khóa tìm kiếm.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        rowsToRender.forEach((item, idx) => {
+            const tr = document.createElement('tr');
+            const sttDisplay = item.unitLabel ? `<span class="pos-badge">${item.unitLabel}</span>` : item.id;
+
+            // Escape single quotes safely for inline handler
+            const safeSpeech = item.speech.replace(/'/g, "\'");
+
+            tr.innerHTML = `
+                <td class="col-stt">${sttDisplay}</td>
+                <td class="col-word">
+                    <div class="word-cell-inner">
+                        <button class="speaker-btn" id="spk-btn-${idx}" title="Nghe phát âm chuẩn Anh-Anh (en-GB): ${item.speech}" onclick="speakWord('${safeSpeech}', this)">
+                            🔊
+                        </button>
+                        <span>${item.word}</span>
+                    </div>
+                </td>
+                <td class="col-pos"><span class="pos-badge">${item.pos}</span></td>
+                <td class="col-meaning">${item.meaning}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Helper for Array.append compatibility
+    Array.prototype.append = Array.prototype.push;
+
+    // Sequential Play All feature for current Unit
+    function togglePlayAll() {
+        if (isPlayingAll) {
+            stopPlayAll();
+            return;
+        }
+
+        const currentUnit = VOCAB_DATA[currentUnitIndex];
+        if (!currentUnit || !currentUnit.items.length) return;
+
+        isPlayingAll = true;
+        playAllIndex = 0;
+        document.getElementById('playAllText').textContent = 'Dừng đọc';
+
+        function playNext() {
+            if (!isPlayingAll || playAllIndex >= currentUnit.items.length) {
+                stopPlayAll();
+                return;
+            }
+            const item = currentUnit.items[playAllIndex];
+            const btn = document.getElementById(`spk-btn-${playAllIndex}`);
+            if (btn) {
+                btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            playAllIndex++;
+            speakWord(item.speech, btn, () => {
+                if (isPlayingAll) {
+                    setTimeout(playNext, 450);
+                }
+            });
+        }
+
+        playNext();
+    }
+
+    function stopPlayAll() {
+        isPlayingAll = false;
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+        const playAllText = document.getElementById('playAllText');
+        if (playAllText) playAllText.textContent = 'Đọc lần lượt cả Unit';
+        document.querySelectorAll('.speaker-btn.speaking').forEach(el => el.classList.remove('speaking'));
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+</script>
+
+</body>
+</html>
